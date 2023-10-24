@@ -1,0 +1,1 @@
+#this is an amazon cllone project using react concepts like hooks router firebase deploy and authentication
