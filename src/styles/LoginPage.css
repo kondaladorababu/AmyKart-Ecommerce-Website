@@ -1,0 +1,81 @@
+
+.login_container {
+    background-color: white;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_page {
+  width: 20%;
+  height: 50%;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input_email {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+}
+
+.input_email > label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.input_email > input {
+  margin-top: 5px;
+  padding: 8px 10px;
+}
+
+.button_content {
+  margin-top: 10px;
+}
+
+.button_content > button {
+  width: 100%;
+  padding: 6px 6px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(255, 218, 8);
+  color: #0f1111;
+}
+
+.button_content > button:hover {
+  background-color: rgb(255, 205, 7);
+}
+
+.button_content > h6 {
+  margin-top: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.create_acc {
+  width: 23%;
+}
+
+.create_acc > button {
+  margin-top: 15px;
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #272727;
+  border-radius: 5px;
+  background-color: white;
+  color: #0f1111;
+}
+
+.create_acc > button:hover {
+  background-color: aliceblue;
+}

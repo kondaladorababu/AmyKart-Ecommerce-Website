@@ -7,12 +7,12 @@ import { useStateValue } from '../Store/StateProvider';
 
 
 function Header() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket }] = useStateValue();
 
     return (
         <nav className='header'>
             {/* Logo on the Left:image */}
-            <Link to='/login'>
+            <Link to='/'>
                 <img
                     className="header_logo"
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"
