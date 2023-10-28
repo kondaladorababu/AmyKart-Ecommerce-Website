@@ -37,14 +37,21 @@ function Home() {
                     id={12321341}
                     title={"Titile1 svsdsd sdvsdvsd "}
                     price={11.22}
-                    image={"https://m.media-amazon.com/images/I/717V4glGOsL.jpg"}
+                    image={"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"}
                     rating={5}
                 />
                 <Product
                     id={12321341}
                     title={"Titile1 svsdsd sdvsdvsd "}
                     price={11.22}
-                    image={"https://m.media-amazon.com/images/I/717V4glGOsL.jpg"}
+                    image={"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"}
+                    rating={5}
+                />
+                <Product
+                    id={12321341}
+                    title={"Titile1 svsdsd sdvsdvsd "}
+                    price={11.22}
+                    image={"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"}
                     rating={5}
                 />
             </div>
@@ -52,9 +59,9 @@ function Home() {
             <div className="home_row">
                 <Product
                     id={12321341}
-                    title={"Titile1 svsdsd sdvsdvsd "}
+                    title={"Mens Casual Slim Fit"}
                     price={11.22}
-                    image={"https://m.media-amazon.com/images/I/717V4glGOsL.jpg"}
+                    image={"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"}
                     rating={5}
                 />
             </div>
