@@ -11,8 +11,10 @@ export const initialState = {
     user: null,
 };
 
-export const getBasketTotal = (basket) =>
-    basket?.reduce((amount, item) => item.price + amount, 0);
+export const getBasketTotal = (basket) => {
+    const total = basket?.reduce((amount, item) => item.price + amount, 0);
+    return total.toFixed(2); // Format the total to two decimal places
+}
 
 function reducer(state, action) {
 
