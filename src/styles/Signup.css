@@ -5,7 +5,7 @@
   margin-bottom: 10px;
 }
 
-.login_container {
+.signup_container {
   background-color: white;
   height: 100vh;
   display: flex;
@@ -14,9 +14,9 @@
   align-items: center;
 }
 
-.login_page {
-  width: 20%;
-  height: 50%;
+.signup_page {
+  width: 20vw;
+  height: 55vh;
   border: 1px solid #272727;
   border-radius: 5px;
   padding: 20px;
@@ -46,13 +46,12 @@
   margin-top: 10px;
 }
 
-.login_signinButton {
+.button_content > button {
   width: 100%;
   padding: 6px 6px;
   border: none;
   border-radius: 5px;
   background-color: rgb(255, 218, 8);
-
   color: #0f1111;
 }
 
@@ -68,26 +67,24 @@ a {
   text-decoration: none;
 }
 
-.custom-link {
-  text-decoration: none; /* Remove the underline from links */
-}
-
-.create_acc {
+.signin {
   width: 100%;
 }
 
-.login_registerButton {
+.signin > button {
   width: 100%;
-  height: 30px;
   flex: 1;
   margin-top: 15px;
-  /* padding: 10px; */
+  padding: 10px;
   border: 1px solid #272727;
   border-radius: 5px;
   background-color: white;
   color: #0f1111;
+
+  font-size: 15px;
+  font-weight: 500;
 }
 
-.create_acc > button:hover {
+.signin > button:hover {
   background-color: aliceblue;
 }

@@ -4,8 +4,37 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import Checkout from './Components/Checkout';
 import LoginPage from './Components/LoginPage';
+import SignUp from './Components/SignUp';
+import { useStateValue } from './Store/StateProvider';
+import { useEffect } from 'react';
+import { auth } from './firebase';
+
 
 function App() {
+  const [, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      if (userAuth) {
+        //alreadyLogged In
+        dispatch({
+          type: 'SET_USER',
+          user: userAuth,
+        })
+
+      } else {
+        // Not logged In
+        dispatch({
+          type: 'SET_USER',
+          user: null,
+        })
+      }
+    });
+
+    return unsubscribe;
+
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -19,8 +48,13 @@ function App() {
 
           <Route exact path='/login' element={
             <>
-              <Header />
-              <LoginPage/>
+              <LoginPage />
+            </>
+          }></Route>
+
+          <Route exact path='/signup' element={
+            <>
+              <SignUp />
             </>
           }></Route>
 

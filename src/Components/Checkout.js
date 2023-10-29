@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Checkout.css';
 import { useStateValue } from '../Store/StateProvider';
 import CheckOutProduct from './CheckOutProduct';
-import CheckTotal from './CheckTotal';
+// import CheckTotal from './CheckTotal';
 
 function Checkout() {
     const [{ basket }] = useStateValue();
@@ -38,7 +38,7 @@ function Checkout() {
 
             {basket.length > 0 && (
                 <div className="checkout_right">
-                    <CheckTotal />
+                    {/* <CheckTotal /> */}
                 </div>
             )}
         </div>
