@@ -1,5 +1,7 @@
 .checkout {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 20px;
   background-color: white;
   height: max-content; 
@@ -11,7 +13,7 @@
 
 .checkout_right{
   margin-left: 5%;
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 
 .checkout_add {
