@@ -10,7 +10,7 @@ function Home() {
             <div className="home_row">
                 <Product
                     id={12321341}
-                    title={"Titile1 svsdsd sdvsdvsd "}
+                    title={"Watter Kettel - Pigeon"}
                     price={11.22}
                     image={"https://m.media-amazon.com/images/I/717V4glGOsL.jpg"}
                     rating={5}
@@ -22,46 +22,63 @@ function Home() {
                     image={"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"}
                     rating={3}
                 />
-
-            </div>
-
-            <div className="home_row">
                 <Product
                     id={12321343}
-                    title={"Titile1 svsdsd sdvsdvsd "}
-                    price={11.22}
-                    image={"https://assets.adidas.com/images/w_600,f_auto,q_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"}
+                    title={"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive"}
+                    price={114}
+                    image={"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"}
+                    rating={5}
+                />
+
+
+                <Product
+                    id={12321343}
+                    title={"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive"}
+                    price={114}
+                    image={"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"}
                     rating={5}
                 />
                 <Product
                     id={12321344}
-                    title={"Titile1 svsdsd sdvsdvsd "}
-                    price={11.22}
-                    image={"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"}
+                    title={"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s"}
+                    price={109}
+                    image={"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"}
                     rating={5}
                 />
                 <Product
                     id={12321345}
-                    title={"Titile1 svsdsd sdvsdvsd "}
-                    price={11.22}
-                    image={"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"}
+                    title={"White Gold Plated Princess"}
+                    price={9.99}
+                    image={"https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"}
                     rating={5}
                 />
                 <Product
                     id={12321346}
-                    title={"Titile1 svsdsd sdvsdvsd "}
-                    price={11.22}
-                    image={"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"}
+                    title={"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats"}
+                    price={10.99}
+                    image={"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"}
                     rating={5}
                 />
-            </div>
+                <Product
+                    id={12321346}
+                    title={"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats"}
+                    price={10.99}
+                    image={"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"}
+                    rating={5}
+                />
+                <Product
+                    id={12321346}
+                    title={"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats"}
+                    price={10.99}
+                    image={"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"}
+                    rating={5}
+                />
 
-            <div className="home_row">
                 <Product
                     id={12321347}
-                    title={"Mens Casual Slim Fit"}
-                    price={11.22}
-                    image={"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"}
+                    title={"WD 2TB Elements Portable External Hard Drive - USB 3.0"}
+                    price={12.99}
+                    image={"https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"}
                     rating={5}
                 />
             </div>
