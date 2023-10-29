@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Header.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,12 +9,33 @@ import { auth } from '../firebase';
 
 function Header() {
     const [{ basket, user }] = useStateValue();
+    const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+
 
     const handleLogin = () => {
         if (user) {
             auth.signOut();
         }
     }
+
+    //Make the cart bump when added items to cart
+    //if basket len is changing which means item is added to cart
+    useEffect(() => {
+        if (basket.length === 0) {
+            return;
+        }
+
+        setBtnIsHighlighted(true);
+
+        const timer = setTimeout(() => {
+            setBtnIsHighlighted(false)
+        }, 300);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, [basket.length]);
 
     return (
         <nav className='header'>
@@ -61,7 +82,7 @@ function Header() {
 
                 {/* 4th link */}
                 <Link to='/checkout' className='header_link'>
-                    <div className="header_optionBasket">
+                    <div className={`header_optionBasket ${btnIsHighlighted ? 'bump' : ''}`}>
                         {/* shopping basket icon */}
                         <ShoppingBasketSharp />
                         <span className='header_optionLineTwo header_basketCount'>{basket.length}</span>

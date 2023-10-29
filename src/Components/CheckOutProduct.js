@@ -3,7 +3,6 @@ import '../styles/CheckOutProduct.css'
 import { useStateValue } from '../Store/StateProvider';
 
 function CheckOutProduct({ id, title, price, image, rating }) {
-
     const [, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
@@ -12,6 +11,7 @@ function CheckOutProduct({ id, title, price, image, rating }) {
             id: id,
         });
     };
+
     return (
         <div className='checkoutProduct'>
             <img className="checkoutProduct_image" src={image} alt="" />
@@ -24,8 +24,8 @@ function CheckOutProduct({ id, title, price, image, rating }) {
                 </p>
                 <div className="chekoutProduct_rating">
                     {
-                        Array(rating).fill().map((_) => (
-                            <p>⭐</p>
+                        Array(rating).fill().map((_, index) => (
+                            <p key={index}>⭐</p>
                         ))
                     }
                 </div>
