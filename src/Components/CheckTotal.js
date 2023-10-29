@@ -10,7 +10,7 @@ function CheckTotal() {
     return (
         <div className='subtotal'>
             <div>
-                <p className='subtotal'>Subtotal ({basket.length} items): <strong>{getBasketTotal(basket)}</strong> </p>
+                <p className='subtotal_main'>Subtotal ({basket.length} items): <strong>{getBasketTotal(basket)}</strong> </p>
                 <small className="subtotal__gift">
                     <input type="checkbox" /> <p className='subtotal_giftInfo'> This order contains a gift</p>
                 </small>
