@@ -13,6 +13,7 @@ import { auth } from './firebase';
 function App() {
   const [, dispatch] = useStateValue();
 
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
       if (userAuth) {
@@ -40,6 +41,14 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path='/' element={
+            <>
+              <Header />
+              <Home />
+             
+            </>
+          }></Route>
+
+          <Route exact path='/HomePage' element={
             <>
               <Header />
               <Home />

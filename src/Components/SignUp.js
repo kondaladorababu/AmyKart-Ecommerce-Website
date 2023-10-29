@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import Modal from './Modal';
 
 function SignUp() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
@@ -24,26 +27,54 @@ function SignUp() {
         setConfirmPassword(event.target.value);
     }
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
 
     const register = (event) => {
         event.preventDefault();
+
+        if (!email.includes('@')) {
+            setModalMessage(`Please Enter a Valid Email Address`);
+            openModal();
+            return;
+        }
+
+        if (password.length < 6) {
+            setModalMessage(`Password must contain minimum 6 characters `);
+            openModal();
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            setModalMessage(`Password's do not match`);
+            openModal();
+            return;
+        }
 
         createUserWithEmailAndPassword(
             auth,
             email,
             password,
-        ).then((authUser) => {
+        ).then(() => {
             //new user create an user
             navigate('/');
-
-            console.log(authUser);
         }).catch((error) => {
-            alert(error.message);
+            // console.error('Firebase Authentication Error:', error.password);
+            setModalMessage('Please Enter Valid Credentials');
+            openModal();
         });
     }
 
     return (
         <div className='signup_container'>
+            {isModalOpen && <Modal onClose={closeModal} info={modalMessage} />}
+
             <img
                 className="main_logo"
                 src="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/woodland-gardening-amazon-png-logo-vector-8.png" alt="Amazon"
@@ -65,14 +96,15 @@ function SignUp() {
 
                     <div className="input_email">
                         <label id="passwordConfirm">Confirm Password</label>
-                        <input value={confirmPassword} onChange={handleConfirmPassword} type="password" id="password" name="password" placeholder="Enter password Again" required />
+                        <input value={confirmPassword} onChange={handleConfirmPassword} type="password" id="passwordConfirm" name="password" placeholder="confirm Password" required />
                     </div>
 
 
                     <div className="button_content">
                         <button >Create Account</button>
                         <h6>
-                            By continuing, you agree to Amazon's and <a href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=200545940">Conditions of Use</a>                     <a href="/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=200534380">Privacy Notice</a>
+                            By continuing, you agree to Amazon's and <a href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=200545940">Conditions of Use</a>
+                            <a href="/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=200534380">Privacy Notice</a>
                         </h6>
                     </div>
                 </div>

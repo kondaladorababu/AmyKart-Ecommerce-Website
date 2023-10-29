@@ -5,13 +5,15 @@ import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-
+import Modal from './Modal';
 
 
 function LoginPage() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleEmail = (event) => {
         setEmail(event.target.value);
@@ -21,6 +23,14 @@ function LoginPage() {
         setpassword(event.target.value);
     }
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     const login = (event) => {
         event.preventDefault();
 
@@ -28,18 +38,19 @@ function LoginPage() {
             auth,
             email,
             password,
-        ).then((authUser) => {
+        ).then(() => {
             //valid user redirect to home screen
-            navigate('/');
-            console.log(authUser);
-        }).catch((error) => {
-            alert(error.message);
+            navigate('/HomePage');
+        }).catch(() => {
+            openModal();
         });
     }
 
 
     return (
         <div className="login_container">
+            {isModalOpen && <Modal onClose={closeModal} info={'Please Login With correct Credentials'} />}
+
             <img
                 className="main_logo"
                 src="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/woodland-gardening-amazon-png-logo-vector-8.png" alt="Amazon"
@@ -58,6 +69,7 @@ function LoginPage() {
                             id="email"
                             name="email"
                             placeholder="Enter your email or phone number"
+                            autoComplete="current-password"
                             required
                         />
                     </div>
@@ -71,7 +83,6 @@ function LoginPage() {
                             id="password"
                             name="password"
                             placeholder="Enter your password"
-                            autoComplete="current-password"
                             required
                         />
                     </div>
