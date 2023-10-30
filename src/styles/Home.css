@@ -1,5 +1,4 @@
 .home {
-  /* max-width: 1200px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -19,4 +18,19 @@
   margin-left: 5px;
   margin-right: 5px;
   /* overflow-y: hidden; */
+}
+
+@media screen and (max-width: 800px) {
+}
+
+@media screen and (max-width: 600px) {
+  .home_image {
+    object-fit: contain;
+    z-index: -1;
+    margin-bottom: 0px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    /* transform: scaleX(1.2);  */
+    overflow: hidden;
+    margin: 0 auto; /* Center the image horizontally */
+  }
 }

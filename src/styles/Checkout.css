@@ -4,14 +4,14 @@
   flex-wrap: wrap;
   padding: 20px;
   background-color: white;
-  height: max-content; 
+  height: max-content;
 }
 
-.checkout_left{
+.checkout_left {
   flex-basis: 70%;
 }
 
-.checkout_right{
+.checkout_right {
   margin-left: 5%;
   flex-basis: 20%;
 }
@@ -26,4 +26,20 @@
   margin-right: 10px;
   padding: 10px;
   border-bottom: 1px solid lightgrey;
+}
+
+@media only screen and (max-width: 800px) {
+  .checkout_right {
+    margin-left: 0;
+    /* width: 100%; */
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .checkout_right {
+    margin-left: 0;
+    width: 100%;
+    flex-basis: 100%;
+  }
 }

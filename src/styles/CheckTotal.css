@@ -9,7 +9,7 @@
   border: 1px solid #dddddd;
 }
 
-.subtotal_main{
+.subtotal_main {
   font-size: 18px;
   font-weight: 600;
 }
@@ -37,4 +37,15 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+}
+@media only screen and (max-width: 800px) {
+  .subtotal {
+    width: 64%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .subtotal {
+    width: 88%;
+  }
 }

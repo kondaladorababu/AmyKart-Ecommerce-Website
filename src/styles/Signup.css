@@ -23,6 +23,7 @@
 
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .input_email {
@@ -87,4 +88,27 @@ a {
 
 .signin > button:hover {
   background-color: aliceblue;
+}
+
+@media screen and (max-width: 800px) {
+  .signup_page {
+    width: 60vw;
+    height: 40vh;
+  }
+
+  .button_content > button {
+    padding: 10px 6px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signup_page {
+    width: 80vw;
+    height: 45vh;
+    padding-bottom: 20px;
+  }
+
+  .button_content > button {
+    padding: 10px 6px;
+  }
 }

@@ -8,9 +8,27 @@ import { auth } from '../firebase';
 
 
 function Header() {
+
     const [{ basket, user }] = useStateValue();
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+    const [openMobileNav, setOpenMobileNav] = useState(false);
 
+    const openMoileNav = () => {
+        if (openMobileNav === false) {
+
+            setOpenMobileNav(true);
+        } else {
+            setOpenMobileNav(false);
+        }
+    }
+
+    const closeMobileNav = () => {
+        if (openMobileNav === false) {
+            setOpenMobileNav(true);
+        } else {
+            setOpenMobileNav(false);
+        }
+    }
 
     const handleLogin = () => {
         if (user) {
@@ -53,13 +71,15 @@ function Header() {
                 <SearchIcon className='header_searchIcon' />
             </div>
 
+
             {/* 3 Links */}
-            <div className="header_nav">
+            <div className={`header_nav ${openMobileNav ? 'mobile_nav' : ''}`}>
+                <i class="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
                 {/* 1st link */}
                 <Link to={!user && '/login'} className='header_link'>
                     <div onClick={handleLogin} className="header_option">
-                        <span className='header_optionLineOne'>Hello {user == null ? '' : user.email.split('@')[0]}</span>
+                        <span className='header_optionLineOne '>Hello <span className='user_name'>{user == null ? '' : user.email.split('@')[0]}</span></span>
                         <span className='header_optionLineTwo'>{user ? 'Sign Out' : ' Sign In'}</span>
                     </div>
                 </Link>
@@ -81,7 +101,7 @@ function Header() {
                 </Link>
 
                 {/* 4th link */}
-                <Link to='/checkout' className='header_link'>
+                <Link to='/checkout' className='header_link mobileNavBarBasket_Link'>
                     <div className={`header_optionBasket ${btnIsHighlighted ? 'bump' : ''}`}>
                         {/* shopping basket icon */}
                         <ShoppingBasketSharp />
@@ -89,8 +109,21 @@ function Header() {
                         {/* No itemsicon */}
                     </div>
                 </Link>
+
             </div>
-            {/* \Basket Icon with count */}
+
+            <Link to='/checkout' className='header_link headerBasketMobile_link'>
+                <div className={`header_optionBasket headeMobile_basketActive ${btnIsHighlighted ? 'bump' : ''}`}>
+                    {/* shopping basket icon */}
+                    <ShoppingBasketSharp />
+                    <span className='header_optionLineTwo header_basketCount'>{basket.length}</span>
+                    {/* No itemsicon */}
+                </div>
+            </Link>
+
+            <i class="fa-solid fa-bars" onClick={openMoileNav}></i>
+
+
         </nav>
     )
 }

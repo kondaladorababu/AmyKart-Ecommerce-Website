@@ -15,6 +15,8 @@
 }
 
 .login_page {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
   width: 20%;
   height: 50%;
   border: 1px solid #272727;
@@ -90,4 +92,19 @@ a {
 
 .create_acc > button:hover {
   background-color: aliceblue;
+}
+
+@media screen and (max-width: 800px) {
+  .login_page {
+    width: 50%;
+    height: 30%;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login_page {
+    width: 80%;
+    height: 40%;
+  }
 }

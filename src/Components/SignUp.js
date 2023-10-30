@@ -46,7 +46,7 @@ function SignUp() {
         }
 
         if (password.length < 6) {
-            setModalMessage(`Password must contain minimum 6 characters `);
+            setModalMessage(`Password must contain atleast 6 characters `);
             openModal();
             return;
         }
