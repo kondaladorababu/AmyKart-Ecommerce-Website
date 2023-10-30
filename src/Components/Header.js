@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { ShoppingBasketSharp } from '@mui/icons-material';
 import { useStateValue } from '../Store/StateProvider';
@@ -8,8 +8,8 @@ import { auth } from '../firebase';
 
 
 function Header() {
-
-    const [{ basket, user }] = useStateValue();
+    const navigate = useNavigate();
+    const [{ basket, user }, dispatch] = useStateValue();
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const [openMobileNav, setOpenMobileNav] = useState(false);
 
@@ -32,7 +32,17 @@ function Header() {
 
     const handleLogin = () => {
         if (user) {
-            auth.signOut();
+            dispatch({
+                type: 'SIGN_OUT',
+                user: null,
+            });
+            auth.signOut()
+                .then(() => {
+                    navigate('/login');
+                })
+                .catch((error) => {
+                    console.error('Error signing out:', error);
+                });
         }
     }
 
@@ -58,7 +68,7 @@ function Header() {
     return (
         <nav className='header'>
             {/* Logo on the Left:image */}
-            <Link to='/'>
+            <Link to='/HomePage'>
                 <img
                     className="header_logo"
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"
@@ -74,10 +84,10 @@ function Header() {
 
             {/* 3 Links */}
             <div className={`header_nav ${openMobileNav ? 'mobile_nav' : ''}`}>
-                <i class="fa-solid fa-xmark" onClick={closeMobileNav}></i>
+                <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
                 {/* 1st link */}
-                <Link to={!user && '/login'} className='header_link'>
+                <Link to={user == null ? '/login' : ''} className='header_link'>
                     <div onClick={handleLogin} className="header_option">
                         <span className='header_optionLineOne '>Hello <span className='user_name'>{user == null ? '' : user.email.split('@')[0]}</span></span>
                         <span className='header_optionLineTwo'>{user ? 'Sign Out' : ' Sign In'}</span>
@@ -121,7 +131,7 @@ function Header() {
                 </div>
             </Link>
 
-            <i class="fa-solid fa-bars" onClick={openMoileNav}></i>
+            <i className="fa-solid fa-bars" onClick={openMoileNav}></i>
 
 
         </nav>

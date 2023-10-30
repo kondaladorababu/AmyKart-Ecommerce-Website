@@ -63,8 +63,8 @@ function SignUp() {
             password,
         ).then(() => {
             //new user create an user
-            navigate('/');
-        }).catch((error) => {
+            navigate('/HomePage');
+        }).catch(() => {
             // console.error('Firebase Authentication Error:', error.password);
             setModalMessage('Please Enter Valid Credentials');
             openModal();

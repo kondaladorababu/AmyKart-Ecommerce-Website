@@ -36,6 +36,11 @@ function reducer(state, action) {
                 ...state,
                 basket: newBasket
             }
+        case 'SIGN_OUT':
+            return {
+                ...state,
+                user: action.user,
+            }
         default:
             return state;
     }
