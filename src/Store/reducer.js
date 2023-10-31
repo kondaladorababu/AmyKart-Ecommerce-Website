@@ -1,13 +1,6 @@
-const dummyItemInCart = {
-    id: 1232134,
-    title: "Titile1 svsdsd sdvsdvsd ",
-    price: 11.22,
-    image: "https://m.media-amazon.com/images/I/717V4glGOsL.jpg",
-    rating: 5,
-}
-
 export const initialState = {
-    basket: [dummyItemInCart, dummyItemInCart],
+    products: [],
+    basket: [],
     user: null,
 };
 
@@ -23,6 +16,11 @@ function reducer(state, action) {
             return {
                 ...state,
                 user: action.user,
+            }
+        case 'SET_DATA':
+            return {
+                ...state,
+                products: action.data,
             }
         case 'ADD_TO_BASKET':
             return {

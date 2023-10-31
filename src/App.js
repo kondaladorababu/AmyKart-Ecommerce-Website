@@ -9,7 +9,6 @@ import { useStateValue } from './Store/StateProvider';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 
-
 function App() {
   const [, dispatch] = useStateValue();
 
@@ -35,6 +34,8 @@ function App() {
     return unsubscribe;
 
   }, [dispatch]);
+
+
 
   return (
     <BrowserRouter>

@@ -14,14 +14,18 @@ function CheckOutProduct({ id, title, price, image, rating }) {
 
     return (
         <div className='checkoutProduct'>
-            <img className="checkoutProduct_image" src={image} alt="" />
+            <div className="image">
+                <img className="checkoutProduct_image" src={image} alt="" />
+            </div>
 
             <div className='checkoutProduct_info'>
-                <p className='checkoutProduct_title'>{title}</p>
-                <p className='product__price'>
-                    <small>₹</small>
-                    <strong>{price}</strong>
-                </p>
+                <div className="one">
+                    <p className='checkoutProduct_title'>{title}</p>
+                    <p className='product__price'>
+                        <small>₹</small>
+                        <strong>{price}</strong>
+                    </p>
+                </div>
                 <div className="chekoutProduct_rating">
                     {
                         Array(rating).fill().map((_, index) => (
@@ -29,8 +33,8 @@ function CheckOutProduct({ id, title, price, image, rating }) {
                         ))
                     }
                 </div>
-
                 <button onClick={removeFromBasket}>Remove from Basket</button>
+
             </div>
         </div>
 

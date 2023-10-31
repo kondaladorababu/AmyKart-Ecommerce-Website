@@ -133,7 +133,6 @@ function Header() {
 
             <i className="fa-solid fa-bars" onClick={openMoileNav}></i>
 
-
         </nav>
     )
 }
