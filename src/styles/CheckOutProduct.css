@@ -58,4 +58,9 @@
     /* flex-basis: 60%; */
     overflow: hidden;
   }
+
+  .checkoutProduct_title {
+    font-size: 15px;
+    font-weight: 800;
+  }
 }
