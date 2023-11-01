@@ -89,13 +89,13 @@ function Header() {
                 {/* 1st link */}
                 <Link to={user == null ? '/login' : ''} className='header_link'>
                     <div onClick={handleLogin} className="header_option">
-                        <span className='header_optionLineOne '>Hello <span className='user_name'>{user == null ? '' : user.email.split('@')[0]}</span></span>
+                        <span className='header_optionLineOne '>Hello <span className='user_name'>{user == null ? 'USER' : user.email.split('@')[0]}</span></span>
                         <span className='header_optionLineTwo'>{user ? 'Sign Out' : ' Sign In'}</span>
                     </div>
                 </Link>
 
                 {/* 2nd link */}
-                <Link to='/' className='header_link'>
+                <Link to='/HomePage' className='header_link'>
                     <div className="header_option">
                         <span className='header_optionLineOne'>Returns</span>
                         <span className='header_optionLineTwo'>& Orders</span>
@@ -103,7 +103,7 @@ function Header() {
                 </Link>
 
                 {/* 3rd link */}
-                <Link to='/' className='header_link'>
+                <Link to='/HomePage' className='header_link'>
                     <div className="header_option">
                         <span className='header_optionLineOne'>Your</span>
                         <span className='header_optionLineTwo'>Prime</span>
