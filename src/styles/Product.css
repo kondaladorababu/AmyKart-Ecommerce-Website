@@ -14,6 +14,12 @@
   background-color: rgb(255, 255, 255);
   z-index: 1;
   flex: 1;
+
+  transition: transform 450ms;
+}
+
+.product:hover {
+  transform: scale(1.06);
 }
 
 .product_info {

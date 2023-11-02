@@ -61,8 +61,6 @@ function Header() {
             type: 'SEARCH_RESULTS',
             data: filteredProducts,
         });
-
-        setuserSearchData('');
     }
 
     // If clicked on amazon logo set the finalproducts to products
@@ -71,6 +69,7 @@ function Header() {
             type: 'SET_DATA',
             data: products,
         });
+        setuserSearchData('');
     }
 
     //Make the cart bump when added items to cart
@@ -110,7 +109,7 @@ function Header() {
             </div>
 
 
-            {/* 3 Links */}
+            {/* MAIN NAV BAR DESKTOP 3  Links */}
             <div className={`header_nav ${openMobileNav ? 'mobile_nav' : ''}`}>
                 <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
@@ -131,7 +130,7 @@ function Header() {
                 </Link>
 
                 {/* 3rd link */}
-                <Link to='/HomePage' className='header_link'>
+                <Link to='https://netflix-clone-project-b1eac.web.app/' className='header_link'>
                     <div className="header_option">
                         <span className='header_optionLineOne'>Your</span>
                         <span className='header_optionLineTwo'>Prime</span>

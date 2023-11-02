@@ -6,11 +6,12 @@ import { useStateValue } from '../Store/StateProvider';
 import Spinner from './Spinner';
 
 function Home() {
-    const [{ finalProducts }, dispatch] = useStateValue();
+    const [{ finalProducts, products }, dispatch] = useStateValue();
 
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products')
             .then(response => {
+
                 dispatch({
                     type: 'SET_DATA',
                     data: response.data,
@@ -25,9 +26,8 @@ function Home() {
     return (
         <div className='home'>
             <img className="home_image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
-
-            {!finalProducts && <Spinner />}
-            {finalProducts.length === 0 && <p style={{fontSize:'30px', fontWeight:'800', display:'flex', justifyContent:'center'}}>No Results Found</p>}
+            {products.length === 0 && <Spinner />}
+            {finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
             {finalProducts && <div className="home_row">
                 {finalProducts.map((product) => (
                     <Product
