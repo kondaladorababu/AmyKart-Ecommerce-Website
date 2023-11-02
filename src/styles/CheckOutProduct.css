@@ -30,6 +30,8 @@
 }
 
 .checkoutProduct_info > button {
+  font-weight: 600;
+  padding: 3px 8px;
   background-color: #f0c14b;
   color: #111;
   border: 1px solid;

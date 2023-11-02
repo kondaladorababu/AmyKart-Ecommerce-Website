@@ -6,6 +6,7 @@ function Product({ id, title, price, image, rating }) {
     const [, dispatch] = useStateValue();
 
     const addToBasket = () => {
+
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
@@ -18,10 +19,13 @@ function Product({ id, title, price, image, rating }) {
         });
     };
 
+    function truncate(str, n) {
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+    }
     return (
         <div className='product'>
             <div className="product_info">
-                <p>{title}</p>
+                <p>{truncate(title, 60)}</p>
                 <p className='product__price'>
                     <small>₹</small>
                     <strong>{price}</strong>

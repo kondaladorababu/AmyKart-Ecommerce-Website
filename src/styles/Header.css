@@ -112,7 +112,7 @@
 
 @media screen and (max-width: 600px) {
   .header_logo {
-    width: 70px;
+    width: 65px;
     object-fit: contain;
     margin: 0 15px;
     margin-top: 18px;
@@ -153,6 +153,16 @@
     display: none;
   }
 
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(56, 56, 56, 0.7);
+    z-index: 1;
+  }
+  
   .mobile_nav {
     position: fixed;
     top: 0;
@@ -180,7 +190,9 @@
   }
 
   .header_optionBasket {
-    margin: 15px;
+    margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .header_optionLineOne {
@@ -191,6 +203,12 @@
   .header_optionLineTwo {
     font-size: 16px;
     font-weight: 800;
+  }
+
+  .header_basketCount {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
   }
 
   .fa-xmark {

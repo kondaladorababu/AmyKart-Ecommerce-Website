@@ -16,7 +16,6 @@ function Header() {
 
     const openMoileNav = () => {
         if (openMobileNav === false) {
-
             setOpenMobileNav(true);
         } else {
             setOpenMobileNav(false);
@@ -108,9 +107,11 @@ function Header() {
                 <SearchIcon onClick={getUserSearchData} className='header_searchIcon' />
             </div>
 
+            <div className={`${openMobileNav ? 'shadow' : ''}`}></div>
 
             {/* MAIN NAV BAR DESKTOP 3  Links */}
             <div className={`header_nav ${openMobileNav ? 'mobile_nav' : ''}`}>
+
                 <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
                 {/* 1st link */}
