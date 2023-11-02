@@ -9,9 +9,10 @@ import { auth } from '../firebase';
 
 function Header() {
     const navigate = useNavigate();
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ products, basket, user }, dispatch] = useStateValue();
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const [openMobileNav, setOpenMobileNav] = useState(false);
+    const [userSearchData, setuserSearchData] = useState('');
 
     const openMoileNav = () => {
         if (openMobileNav === false) {
@@ -46,6 +47,32 @@ function Header() {
         }
     }
 
+    const userInputSearch = (e) => {
+        setuserSearchData(e.target.value);
+    }
+
+    //get the user searched data from products object every time a new search is entered
+    const getUserSearchData = () => {
+        const filteredProducts = products.filter((item) =>
+            item.title.toLowerCase().includes(userSearchData.toLowerCase()) || item.description.toLowerCase().includes(userSearchData.toLowerCase())
+        );
+
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            data: filteredProducts,
+        });
+
+        setuserSearchData('');
+    }
+
+    // If clicked on amazon logo set the finalproducts to products
+    const refreshPage = () => {
+        dispatch({
+            type: 'SET_DATA',
+            data: products,
+        });
+    }
+
     //Make the cart bump when added items to cart
     //if basket len is changing which means item is added to cart
     useEffect(() => {
@@ -65,20 +92,21 @@ function Header() {
 
     }, [basket.length]);
 
+
     return (
         <nav className='header'>
             {/* Logo on the Left:image */}
             <Link to='/HomePage'>
                 <img
-                    className="header_logo"
+                    className="header_logo" onClick={refreshPage}
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"
                 />
             </Link>
 
             {/* Search Box */}
             <div className="header_search">
-                <input type="text" className="header_searchInput" />
-                <SearchIcon className='header_searchIcon' />
+                <input value={userSearchData} onChange={userInputSearch} type="text" className="header_searchInput" />
+                <SearchIcon onClick={getUserSearchData} className='header_searchIcon' />
             </div>
 
 

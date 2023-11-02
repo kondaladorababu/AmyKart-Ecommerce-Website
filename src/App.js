@@ -42,9 +42,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path='/' element={
-            <>
-              <LoginPage />
-            </>
+            <LoginPage />
           }></Route>
 
           <Route exact path='/HomePage' element={
@@ -55,15 +53,11 @@ function App() {
           }></Route>
 
           <Route exact path='/login' element={
-            <>
-              <LoginPage />
-            </>
+            <LoginPage />
           }></Route>
 
           <Route exact path='/signup' element={
-            <>
-              <SignUp />
-            </>
+            <SignUp />
           }></Route>
 
           <Route exact path='/checkout' element={

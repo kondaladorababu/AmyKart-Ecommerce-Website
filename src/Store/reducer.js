@@ -1,5 +1,6 @@
 export const initialState = {
     products: [],
+    finalProducts: [],
     basket: [],
     user: null,
 };
@@ -21,6 +22,12 @@ function reducer(state, action) {
             return {
                 ...state,
                 products: action.data,
+                finalProducts: action.data,
+            }
+        case 'SEARCH_RESULTS':
+            return {
+                ...state,
+                finalProducts: action.data,
             }
         case 'ADD_TO_BASKET':
             return {
