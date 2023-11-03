@@ -6,7 +6,7 @@ import CheckTotal from './CheckTotal';
 
 
 function Checkout() {
-    const [{ basket }] = useStateValue();
+    const [{ basket, user }] = useStateValue();
 
     return (
         <div className='checkout'>
@@ -19,7 +19,7 @@ function Checkout() {
                     (
                         <div>
                             <h2>Your Basket is Empty</h2>
-                            <p>You Have no Items in Your Basket</p>
+                            {!user ? <p>Login to Add Products to Your Basket</p> : <p>You Have no Items in Your Basket</p>}
                         </div>
                     ) : (
                         <div>

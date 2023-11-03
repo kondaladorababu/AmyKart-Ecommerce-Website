@@ -42,7 +42,10 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path='/' element={
-            <LoginPage />
+            <>
+              <Header />
+              <Home />
+            </>
           }></Route>
 
           <Route exact path='/HomePage' element={

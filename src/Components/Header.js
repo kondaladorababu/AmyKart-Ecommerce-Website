@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { ShoppingBasketSharp } from '@mui/icons-material';
 import { useStateValue } from '../Store/StateProvider';
@@ -8,37 +8,31 @@ import { auth } from '../firebase';
 
 
 function Header() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [{ products, basket, user }, dispatch] = useStateValue();
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
-    const [openMobileNav, setOpenMobileNav] = useState(false);
+    const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
     const [userSearchData, setuserSearchData] = useState('');
 
+
     const openMoileNav = () => {
-        if (openMobileNav === false) {
-            setOpenMobileNav(true);
-        } else {
-            setOpenMobileNav(false);
-        }
+        setOpenMobileNav('mobile_nav');
     }
 
     const closeMobileNav = () => {
-        if (openMobileNav === false) {
-            setOpenMobileNav(true);
-        } else {
-            setOpenMobileNav(false);
-        }
+        setOpenMobileNav('mobile_nav_close');
     }
 
     const handleLogin = () => {
         if (user) {
-            dispatch({
-                type: 'SIGN_OUT',
-                user: null,
-            });
+
             auth.signOut()
                 .then(() => {
-                    navigate('/login');
+                    //clear the basket & close the mobile nav bar
+                    dispatch({
+                        type: 'CLEAR_BASKET',
+                    });
+                    setOpenMobileNav('mobile_nav_close');
                 })
                 .catch((error) => {
                     console.error('Error signing out:', error);
@@ -102,15 +96,15 @@ function Header() {
             </Link>
 
             {/* Search Box */}
-            <div className="header_search">
+            <div className='header_search'>
                 <input value={userSearchData} onChange={userInputSearch} type="text" className="header_searchInput" />
                 <SearchIcon onClick={getUserSearchData} className='header_searchIcon' />
             </div>
 
-            <div className={`${openMobileNav ? 'shadow' : ''}`}></div>
+            <div className={`${openMobileNav === 'mobile_nav' ? 'shadow' : ''}`}></div>
 
             {/* MAIN NAV BAR DESKTOP 3  Links */}
-            <div className={`header_nav ${openMobileNav ? 'mobile_nav' : ''}`}>
+            <div className={`header_nav ${openMobileNav}`}>
 
                 <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
@@ -161,7 +155,7 @@ function Header() {
 
             <i className="fa-solid fa-bars" onClick={openMoileNav}></i>
 
-        </nav>
+        </nav >
     )
 }
 

@@ -6,7 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './Store/StateProvider';
 import reducer, { initialState } from './Store/reducer';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+if (!root) {
+  throw new Error('The root element does not exist.');
+}
 
 root.render(
   <React.StrictMode>

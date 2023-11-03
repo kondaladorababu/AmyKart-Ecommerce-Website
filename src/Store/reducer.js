@@ -1,14 +1,17 @@
+
 export const initialState = {
     products: [],
     finalProducts: [],
     basket: [],
     user: null,
+    isModal: false,
 };
 
 export const getBasketTotal = (basket) => {
     const total = basket?.reduce((amount, item) => item.price + amount, 0);
     return total.toFixed(2); // Format the total to two decimal places
 }
+
 
 function reducer(state, action) {
 
@@ -29,6 +32,11 @@ function reducer(state, action) {
                 ...state,
                 finalProducts: action.data,
             }
+        case 'LOGIN_TO_ACCESS':
+            return {
+                ...state,
+                isModal: action.openModal,
+            }
         case 'ADD_TO_BASKET':
             return {
                 ...state,
@@ -40,6 +48,11 @@ function reducer(state, action) {
             return {
                 ...state,
                 basket: newBasket
+            }
+        case 'CLEAR_BASKET':
+            return {
+                ...state,
+                basket: [],
             }
         case 'SIGN_OUT':
             return {
