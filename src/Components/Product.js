@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Product.css'
 import { useStateValue } from '../Store/StateProvider';
+import { truncate } from '../Store/reducer';
 
 function Product({ id, title, price, image, rating }) {
     const [{ user }, dispatch] = useStateValue();
@@ -26,10 +27,6 @@ function Product({ id, title, price, image, rating }) {
         }
 
     };
-
-    function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-    }
 
     return (
         <div className='product'>

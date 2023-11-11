@@ -14,7 +14,6 @@ function Header() {
     const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
     const [userSearchData, setuserSearchData] = useState('');
 
-
     const openMoileNav = () => {
         setOpenMobileNav('mobile_nav');
     }

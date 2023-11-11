@@ -216,7 +216,7 @@
   }
 
   .fa-xmark {
-    display: block;
+    display: inline-block;
     font-size: 24px;
     color: white;
   }
