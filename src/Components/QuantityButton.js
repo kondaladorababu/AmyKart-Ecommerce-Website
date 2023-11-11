@@ -4,7 +4,8 @@ import { useStateValue } from '../Store/StateProvider';
 
 
 function QuantityButton(props) {
-    const [{ basket }, dispatch] = useStateValue();
+    const {state, dispatch} = useStateValue();
+    const { basket } = state;
 
     const handleQuantityPrice = (action, id) => {
         if (action === 'decrease') {

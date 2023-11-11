@@ -4,7 +4,8 @@ import { useStateValue } from '../Store/StateProvider';
 import { truncate } from '../Store/reducer';
 
 function Product({ id, title, price, image, rating }) {
-    const [{ user }, dispatch] = useStateValue();
+    const { state, dispatch } = useStateValue();
+    const { user } = state;
 
     const addToBasket = () => {
         //if user is not logged in

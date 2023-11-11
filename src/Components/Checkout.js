@@ -6,7 +6,8 @@ import CheckTotal from './CheckTotal';
 
 
 function Checkout() {
-    const [{ basket, user }] = useStateValue();
+    const {state} = useStateValue();
+    const { basket, user } = state;
 
     return (
         <div className='checkout'>

@@ -5,7 +5,7 @@ import { truncate } from '../Store/reducer';
 import QuantityButton from './QuantityButton';
 
 function CheckOutProduct({ id, title, price, image, rating }) {
-    const [, dispatch] = useStateValue();
+    const {dispatch} = useStateValue();
     const [count, setCount] = useState(1);
 
     const removeFromBasket = () => {

@@ -9,7 +9,9 @@ import { auth } from '../firebase';
 
 function Header() {
     // const navigate = useNavigate();
-    const [{ products, basket, user }, dispatch] = useStateValue();
+    const { state, dispatch } = useStateValue();
+    const { products, basket, user } = state;
+
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
     const [userSearchData, setuserSearchData] = useState('');

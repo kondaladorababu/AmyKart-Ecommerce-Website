@@ -3,7 +3,8 @@ import '../styles/CheckTotal.css';
 import { useStateValue } from '../Store/StateProvider';
 
 function CheckTotal() {
-    const [{ basket, totalPrice }] = useStateValue();
+    const {state} = useStateValue();
+    const { basket, totalPrice } = state;
 
     return (
         <div className='subtotal'>

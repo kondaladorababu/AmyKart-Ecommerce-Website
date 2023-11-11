@@ -7,7 +7,9 @@ import Spinner from './Spinner';
 import Modal from './Modal';
 
 function Home() {
-    const [{ finalProducts, isModal }, dispatch] = useStateValue();
+    const { state, dispatch } = useStateValue();
+    const { finalProducts, isModal } = state;
+
     const [isFetching, setIsfetching] = useState(true);
 
     const closeModal = () => {
