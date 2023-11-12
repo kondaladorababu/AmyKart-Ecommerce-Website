@@ -32,12 +32,10 @@ function CheckOutProduct({ id, title, price, image, rating }) {
                 <div className="chekoutProduct_quantity">
                     <div className="quantity_content">
                         <small className='quantity_times'>{`Items : `}</small>
-                        {/* <strong className='quantity_value'>{`${count}`}</strong> */}
                     </div>
                     <QuantityButton count={count} setCount={setCount} id={id} />
                 </div>
                 <button onClick={removeFromBasket}>Remove from Basket</button>
-
             </div>
         </div >
 

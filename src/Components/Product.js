@@ -9,12 +9,13 @@ function Product({ id, title, price, description, image, rating }) {
 
     const addToBasket = () => {
         // if user is not logged in
-        if (!user) {
-            dispatch({
-                type: 'LOGIN_TO_ACCESS',
-                openModal: true,
-            });
-        } else {
+        // if (!user) {
+        //     dispatch({
+        //         type: 'LOGIN_TO_ACCESS',
+        //         openModal: true,
+        //     });
+        // } else 
+        {
             dispatch({
                 type: 'ADD_TO_BASKET',
                 item: {
