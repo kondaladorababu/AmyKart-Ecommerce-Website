@@ -35,8 +35,6 @@ function App() {
 
   }, [dispatch]);
 
-
-
   return (
     <BrowserRouter>
       <div className="app">

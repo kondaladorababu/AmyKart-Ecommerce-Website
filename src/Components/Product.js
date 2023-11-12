@@ -8,7 +8,7 @@ function Product({ id, title, price, image, rating }) {
     const { user } = state;
 
     const addToBasket = () => {
-        //if user is not logged in
+        // if user is not logged in
         if (!user) {
             dispatch({
                 type: 'LOGIN_TO_ACCESS',
