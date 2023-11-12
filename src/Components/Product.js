@@ -43,7 +43,7 @@ function Product({ id, title, price, description, image, rating }) {
                         <strong>{price}</strong>
                     </p>
                     <p className='product_description'>
-                        {truncate(description, 90)}
+                        {truncate(description, 95)}
                     </p>
                     <div className="product_rating">
                         {
