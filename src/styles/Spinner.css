@@ -1,8 +1,15 @@
 .spinner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .spinner > img {
   width: 80px;
+}
+
+.spinner > p {
+  font-size: 18px;
+  font-weight: 600;
 }

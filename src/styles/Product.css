@@ -5,12 +5,13 @@
   align-items: center;
   margin: 10px;
 
-  padding: 15px;
+  padding: 20px;
   width: 100%;
-
-  max-height: 400px;
+  min-height: 400px;
+  max-height: 600px;
   min-width: 20vw;
 
+  border-radius: 10px;
   background-color: rgb(255, 255, 255);
   z-index: 1;
   flex: 1;
@@ -22,26 +23,16 @@
   transform: scale(1.06);
 }
 
-.product_info {
-  height: 120px;
-  margin-bottom: 15px;
-  overflow: hidden;
- 
-  font-weight: 600;
-}
-
-.product__price {
-  margin-top: 5px;
-}
-
-.product_rating {
-  display: flex;
-}
-
 .product_image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  transition: transform 650ms;
+}
+
+.product_image:hover {
+  transform: scale(1.08);
 }
 
 .product_image > img {
@@ -55,13 +46,72 @@
   margin-bottom: 15px;
 }
 
-.product_image > button {
+.product_info {
+  min-height: 180px;
+  max-height: 55%;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product_details {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.product_title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product__price {
+  margin-top: -5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product_description {
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.product_rating {
+  margin-top: 10px;
+  display: flex;
+}
+
+ /* .product_info > button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
-  padding: 2px 14px;
-  background-color: #f0c14b;
-  border: 1px solid;
-  border-color: #a88734 #9c7e31 #846a29;
+  padding: 8px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 20px 20px rgba(0, 0, 0, 0.2);
+}  */
+
+.add_product {
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width: 90%;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px;
+ 
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2); /* border-color: #a88734 #9c7e31 #846a29; */
 }
 
 @media screen and (max-width: 800px) {

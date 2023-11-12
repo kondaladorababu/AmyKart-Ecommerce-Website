@@ -3,7 +3,7 @@ import '../styles/Product.css'
 import { useStateValue } from '../Store/StateProvider';
 import { truncate } from '../Store/reducer';
 
-function Product({ id, title, price, image, rating }) {
+function Product({ id, title, price, description, image, rating }) {
     const { state, dispatch } = useStateValue();
     const { user } = state;
 
@@ -31,24 +31,29 @@ function Product({ id, title, price, image, rating }) {
 
     return (
         <div className='product'>
-            <div className="product_info">
-                <p>{truncate(title, 60)}</p>
-                <p className='product__price'>
-                    <small>₹</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="product_rating">
-                    {
-                        Array(rating).fill().map((_, index) => (
-                            <p key={index}>⭐</p>
-                        ))
-                    }
-                </div>
-            </div>
-
             <div className="product_image">
                 <img src={image} alt="" />
-                <button onClick={addToBasket}>Add to basket</button>
+            </div>
+
+            <div className="product_info">
+                <div className="product_details">
+                    <p className='product_title'>{truncate(title, 30)}</p>
+                    <p className='product__price'>
+                        <small>₹</small>
+                        <strong>{price}</strong>
+                    </p>
+                    <p className='product_description'>
+                        {truncate(description, 90)}
+                    </p>
+                    <div className="product_rating">
+                        {
+                            Array(rating).fill().map((_, index) => (
+                                <p key={index}>⭐</p>
+                            ))
+                        }
+                    </div>
+                </div>
+                <button className='add_product' onClick={addToBasket}>Add to basket</button>
             </div>
         </div>
     )

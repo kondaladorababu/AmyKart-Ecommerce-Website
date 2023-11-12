@@ -52,6 +52,7 @@ function Home() {
                             id={product.id}
                             title={product.title}
                             price={product.price}
+                            description={product.description}
                             image={product.image}
                             rating={Math.round(product.rating.rate)}
                         />
