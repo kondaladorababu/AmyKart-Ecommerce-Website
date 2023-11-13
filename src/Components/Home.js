@@ -6,10 +6,10 @@ import { useStateValue } from '../Store/StateProvider';
 import Spinner from './Spinner';
 import Modal from './Modal';
 
+
 function Home() {
     const { state, dispatch } = useStateValue();
     const { finalProducts, isModal } = state;
-
     const [isFetching, setIsfetching] = useState(true);
 
     const closeModal = () => {
@@ -18,7 +18,6 @@ function Home() {
             openModal: false,
         });
     };
-
 
     useEffect(() => {
         setIsfetching(true);
@@ -33,6 +32,7 @@ function Home() {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
+
     }, [dispatch]);
 
 
@@ -47,16 +47,21 @@ function Home() {
                 {finalProducts && <div className="home_row">
                     {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
                     {finalProducts.map((product) => (
+
                         <Product
                             key={product.id}
+                            category={product.category}
                             id={product.id}
                             title={product.title}
                             price={product.price}
                             description={product.description}
                             image={product.image}
                             rating={Math.round(product.rating.rate)}
+
                         />
+
                     )
+
                     )}
 
                 </div>}
@@ -64,7 +69,7 @@ function Home() {
             </div>
 
 
-        </Fragment>
+        </Fragment >
 
     )
 }

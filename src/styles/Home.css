@@ -10,6 +10,11 @@
   margin-bottom: -200px;
 }
 
+.productPage_link{
+  color: black;
+  text-decoration: none;
+}
+
 .home_row {
   display: flex;
   justify-content: center;
@@ -20,10 +25,7 @@
   /* overflow-y: hidden; */
 }
 
-@media screen and (max-width: 800px) {
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768) {
   .home_image {
     object-fit: contain;
     z-index: -1;

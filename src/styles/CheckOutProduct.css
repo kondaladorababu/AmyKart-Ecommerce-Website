@@ -50,6 +50,12 @@
   border: none;
   box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2); /* border-color: #a88734 #9c7e31 #846a29; */
   margin-top: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.checkoutProduct_info > button:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 768px) {

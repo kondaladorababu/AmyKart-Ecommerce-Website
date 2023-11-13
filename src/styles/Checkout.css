@@ -29,18 +29,22 @@
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 800px) {
-  .checkout_right {
-    margin-left: 0;
-    /* width: 100%; */
+
+@media only screen and (max-width: 768px) {
+  .checkout_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-basis: 100%;
   }
-}
 
-@media only screen and (max-width: 600px) {
   .checkout_right {
     margin-left: 0;
     width: 100%;
     flex-basis: 100%;
+  }
+
+  .checkout_title {
+    font-size: 20px;
   }
 }

@@ -8,10 +8,10 @@ import SignUp from './Components/SignUp';
 import { useStateValue } from './Store/StateProvider';
 import { useEffect } from 'react';
 import { auth } from './firebase';
+import ProductPage from './Components/ProductPage';
 
 function App() {
   const { dispatch } = useStateValue();
-
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
@@ -65,6 +65,14 @@ function App() {
             <>
               <Header />
               <Checkout />
+            </>
+          }>
+          </Route>
+
+          <Route exact path='/productPage' element={
+            <>
+              <Header />
+              <ProductPage />
             </>
           }>
           </Route>

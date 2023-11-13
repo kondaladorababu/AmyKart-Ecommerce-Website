@@ -3,9 +3,9 @@ export const initialState = {
     products: [],
     finalProducts: [],
     basket: [],
+    totalPrice: 0,
     user: null,
     isModal: false,
-    totalPrice: 0,
 };
 
 const getBasketTotal = (basket) => {
