@@ -1,4 +1,18 @@
 
+const IsProductPresent = (basket, productId) => {
+    const present = basket.some(product => product.id === productId);
+    return present;
+}
+
+// const getBasketTotal = (basket) => {
+//     const total = basket?.reduce((amount, item) => item.price + amount, 0);
+//     return total.toFixed(2); // Format the total to two decimal places
+// };
+
+export function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+}
+
 export const initialState = {
     products: [],
     finalProducts: [],
@@ -7,16 +21,6 @@ export const initialState = {
     user: null,
     isModal: false,
 };
-
-const getBasketTotal = (basket) => {
-    const total = basket?.reduce((amount, item) => item.price + amount, 0);
-    return total.toFixed(2); // Format the total to two decimal places
-};
-
-export function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-}
-
 
 function reducer(state, action) {
 
@@ -43,20 +47,35 @@ function reducer(state, action) {
                 isModal: action.openModal,
             }
         case 'ADD_TO_BASKET':
-            const newBasket = [...state.basket, action.item];
-            const newTotalPrice = getBasketTotal(newBasket);
+            let newBasket = null;
+            if ([...state.basket].length > 0 && IsProductPresent([...state.basket], action.item.id)) {
+                newBasket = [...state.basket].map(product => {
+                    if (product.id === action.item.id) {
+                        return { ...product, quantity: product.quantity + 1 };
+                    }
+                    return product;
+                });
+            } else {
+                newBasket = [...state.basket, action.item];
+            }
+
+            const newTotalPrice = (state.totalPrice * 100 + action.item.price * 100) / 100;
             return {
                 ...state,
                 basket: newBasket,
-                totalPrice: newTotalPrice,
+                totalPrice: newTotalPrice.toFixed(2),
             }
         case 'REMOVE_FROM_BASKET':
+            const productToRemove = state.basket.find(product => product.id === action.id);
+            const priceToRemove = (productToRemove.quantity * productToRemove.price);
+            console.log(priceToRemove);
             const updatedBasket = [...state.basket].filter(item => item.id !== action.id)
-            const updatedTotalPrice = getBasketTotal(updatedBasket);
+            const updatedTotalPrice = (state.totalPrice * 100 - priceToRemove * 100) / 100;
+
             return {
                 ...state,
                 basket: updatedBasket,
-                totalPrice: updatedTotalPrice,
+                totalPrice: updatedTotalPrice.toFixed(2),
             }
         case 'INCREASE_PRODUCT_PRICE':
             const increasedTotalPrice = (state.totalPrice * 100 + action.price * 100) / 100; // Convert to cents and then back

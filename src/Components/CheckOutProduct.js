@@ -4,11 +4,12 @@ import { useStateValue } from '../Store/StateProvider';
 import { truncate } from '../Store/reducer';
 import QuantityButton from './QuantityButton';
 
-function CheckOutProduct({ id, title, price, image, rating }) {
-    const {dispatch} = useStateValue();
-    const [count, setCount] = useState(1);
+function CheckOutProduct({ id, title, price, image, quantity }) {
+    const { dispatch } = useStateValue();
+    const [count, setCount] = useState(quantity);
 
     const removeFromBasket = () => {
+
         dispatch({
             type: 'REMOVE_FROM_BASKET',
             id: id,
@@ -31,7 +32,7 @@ function CheckOutProduct({ id, title, price, image, rating }) {
                 </div>
                 <div className="chekoutProduct_quantity">
                     <div className="quantity_content">
-                        <small className='quantity_times'>{`Items : `}</small>
+                        <small className='quantity_times'>{`QTY : `}</small>
                     </div>
                     <QuantityButton count={count} setCount={setCount} id={id} />
                 </div>

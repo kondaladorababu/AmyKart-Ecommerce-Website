@@ -6,7 +6,7 @@ import CheckTotal from './CheckTotal';
 
 
 function Checkout() {
-    const {state} = useStateValue();
+    const { state } = useStateValue();
     const { basket, user } = state;
 
     return (
@@ -32,7 +32,7 @@ function Checkout() {
                                     title={item.title}
                                     image={item.image}
                                     price={item.price}
-                                    rating={item.rating}
+                                    quantity={item.quantity}
                                 />
                             ))}
                         </div>

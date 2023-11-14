@@ -6,11 +6,11 @@ import { useStateValue } from '../Store/StateProvider';
 import Spinner from './Spinner';
 import Modal from './Modal';
 
-
 function Home() {
     const { state, dispatch } = useStateValue();
     const { finalProducts, isModal } = state;
     const [isFetching, setIsfetching] = useState(true);
+    const [error, setError] = useState('');
 
     const closeModal = () => {
         dispatch({
@@ -19,21 +19,33 @@ function Home() {
         });
     };
 
-    useEffect(() => {
+    async function fetchProducts() {
         setIsfetching(true);
-        axios.get('https://fakestoreapi.com/products')
-            .then(response => {
-                setIsfetching(false);
-                dispatch({
-                    type: 'SET_DATA',
-                    data: response.data,
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        try {
+            const response = await axios.get('https://fakestoreapi.com/products');
+            const resData = response.data;
 
-    }, [dispatch]);
+            if (response.status !== 200) {
+                throw new Error('Failed to fetch Products');
+            }
+
+            dispatch({
+                type: 'SET_DATA',
+                data: resData,
+            });
+        } catch (error) {
+            setError(error);
+        }
+        setIsfetching(false);
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    if (error) {
+        return <Modal onClose={closeModal} info={'Error Fetching Products . Please Try Again Later'} />
+    }
 
 
     return (
