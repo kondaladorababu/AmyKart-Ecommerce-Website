@@ -34,7 +34,7 @@ function CheckOutProduct({ id, title, price, image, quantity }) {
                     <div className="quantity_content">
                         <small className='quantity_times'>{`QTY : `}</small>
                     </div>
-                    <QuantityButton count={count} setCount={setCount} id={id} />
+                    <QuantityButton count={count} setCount={setCount} product={{ id, title, price, image, quantity }} />
                 </div>
                 <button onClick={removeFromBasket}>Remove from Basket</button>
             </div>

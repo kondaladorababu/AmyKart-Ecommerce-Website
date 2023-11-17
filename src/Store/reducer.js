@@ -48,6 +48,7 @@ function reducer(state, action) {
             }
         case 'ADD_TO_BASKET':
             let newBasket = null;
+
             if ([...state.basket].length > 0 && IsProductPresent([...state.basket], action.item.id)) {
                 newBasket = [...state.basket].map(product => {
                     if (product.id === action.item.id) {
@@ -67,8 +68,8 @@ function reducer(state, action) {
             }
         case 'REMOVE_FROM_BASKET':
             const productToRemove = state.basket.find(product => product.id === action.id);
-            const priceToRemove = (productToRemove.quantity * productToRemove.price);
-            console.log(priceToRemove);
+            const productQuantity = productToRemove.quantity;
+            const priceToRemove = (productQuantity * productToRemove.price);
             const updatedBasket = [...state.basket].filter(item => item.id !== action.id)
             const updatedTotalPrice = (state.totalPrice * 100 - priceToRemove * 100) / 100;
 
@@ -78,15 +79,31 @@ function reducer(state, action) {
                 totalPrice: updatedTotalPrice.toFixed(2),
             }
         case 'INCREASE_PRODUCT_PRICE':
-            const increasedTotalPrice = (state.totalPrice * 100 + action.price * 100) / 100; // Convert to cents and then back
+            const quantityIncBasket = [...state.basket].map(product => {
+                if (product.id === action.id) {
+                    return { ...product, quantity: product.quantity + 1 };
+                }
+                return product;
+            });
+            const increasedTotalPrice = (state.totalPrice * 100 + action.price * 100) / 100;
+
             return {
                 ...state,
+                basket: quantityIncBasket,
                 totalPrice: increasedTotalPrice.toFixed(2),
             }
         case 'DECREASE_PRODUCT_PRICE':
+            const quantityDecBasket = [...state.basket].map(product => {
+                if (product.id === action.id) {
+                    return { ...product, quantity: product.quantity - 1 };
+                }
+                return product;
+            });
             const decreasedTotalPrice = (state.totalPrice * 100 - action.price * 100) / 100;
+
             return {
                 ...state,
+                basket: quantityDecBasket,
                 totalPrice: decreasedTotalPrice.toFixed(2),
             }
         case 'CLEAR_BASKET':

@@ -10,7 +10,7 @@ import { auth } from '../firebase';
 function Header() {
     // const navigate = useNavigate();
     const { state, dispatch } = useStateValue();
-    const { products, basket, user } = state;
+    const { products, basket, user, totalPrice } = state;
 
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
@@ -83,7 +83,7 @@ function Header() {
             clearTimeout(timer);
         };
 
-    }, [basket.length]);
+    }, [totalPrice]);
 
 
     return (

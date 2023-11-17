@@ -1,11 +1,22 @@
 import React from 'react';
 import '../styles/ProductPage.css';
 import { useLocation } from 'react-router-dom';
+import { useStateValue } from '../Store/StateProvider';
 
 
 function ProductPage() {
     const location = useLocation();
     const { productData } = location.state;
+    const { dispatch } = useStateValue();
+
+    const handleAddProduct = () => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: productData.id,
+            },
+        });
+    }
 
     return (
         <div className='productPage'>
@@ -31,7 +42,7 @@ function ProductPage() {
                             }
                         </div>
                     </div>
-                    <button className='productPage_addProduct'>Add to basket</button>
+                    <button onClick={handleAddProduct} className='productPage_addProduct'>Add to basket</button>
                 </div>
             </div>
         </div>
