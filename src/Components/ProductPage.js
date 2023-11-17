@@ -14,6 +14,10 @@ function ProductPage() {
             type: 'ADD_TO_BASKET',
             item: {
                 id: productData.id,
+                image: productData.image,
+                price: productData.price,
+                title: productData.title,
+                quantity: 1,
             },
         });
     }
