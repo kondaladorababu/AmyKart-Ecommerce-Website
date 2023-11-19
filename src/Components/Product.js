@@ -22,6 +22,16 @@ function Product({ id, category, title, price, description, image, rating }) {
                 quantity: 1,
             },
         });
+
+        dispatch({
+            type: 'ADD_NOTIFICATION',
+        });
+
+        setTimeout(() => {
+            dispatch({
+                type: 'REMOVE_NOTIFICATION',
+            });
+        }, 3000);
     };
 
 

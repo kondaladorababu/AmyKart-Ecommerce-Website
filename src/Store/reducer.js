@@ -4,11 +4,6 @@ const IsProductPresent = (basket, productId) => {
     return present;
 }
 
-// const getBasketTotal = (basket) => {
-//     const total = basket?.reduce((amount, item) => item.price + amount, 0);
-//     return total.toFixed(2); // Format the total to two decimal places
-// };
-
 export function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
@@ -20,6 +15,7 @@ export const initialState = {
     totalPrice: 0,
     user: null,
     isModal: false,
+    notifications: []
 };
 
 function reducer(state, action) {
@@ -111,6 +107,25 @@ function reducer(state, action) {
                 ...state,
                 basket: [],
                 totalPrice: 0,
+            }
+        case 'ADD_NOTIFICATION':
+            const newNotification = {
+                id: [...state.notifications].length + 1,
+                message: 'Added to Basket',
+            };
+
+            const updatedNotifications = [...state.notifications, newNotification];
+
+            return {
+                ...state,
+                notifications: updatedNotifications,
+            }
+        case 'REMOVE_NOTIFICATION':
+            const removedNotifications = [...state.notifications].filter(notif => notif.id !== [...state.notifications].length);
+
+            return {
+                ...state,
+                notifications: removedNotifications,
             }
         case 'SIGN_OUT':
             return {

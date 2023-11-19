@@ -20,6 +20,16 @@ function ProductPage() {
                 quantity: 1,
             },
         });
+
+        dispatch({
+            type: 'ADD_NOTIFICATION',
+        });
+
+        setTimeout(() => {
+            dispatch({
+                type: 'REMOVE_NOTIFICATION',
+            });
+        }, 3000);
     }
 
     return (

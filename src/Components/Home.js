@@ -41,7 +41,7 @@ function Home() {
 
     useEffect(() => {
         fetchProducts();
-    }, []);
+    },);
 
     if (error) {
         return <Modal onClose={closeModal} info={'Error Fetching Products . Please Try Again Later'} />
@@ -54,7 +54,7 @@ function Home() {
             <div className='home'>
                 <img className="home_image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
 
-                {isFetching && <Spinner />}
+                {!finalProducts && <Spinner />}
                 {!isFetching && finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
                 {finalProducts && <div className="home_row">
                     {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
@@ -69,7 +69,6 @@ function Home() {
                             description={product.description}
                             image={product.image}
                             rating={Math.round(product.rating.rate)}
-
                         />
 
                     )

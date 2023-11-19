@@ -9,6 +9,7 @@ import { useStateValue } from './Store/StateProvider';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import ProductPage from './Components/ProductPage';
+import Notification from './Components/Notification';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -38,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <Notification />
         <Routes>
           <Route exact path='/' element={
             <>
@@ -49,6 +51,8 @@ function App() {
           <Route exact path='/HomePage' element={
             <>
               <Header />
+              {/* <Notification /> */}
+
               <Home />
             </>
           }></Route>
