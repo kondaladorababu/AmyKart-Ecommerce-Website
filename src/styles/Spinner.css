@@ -6,10 +6,25 @@
 }
 
 .spinner > img {
-  width: 80px;
+  width: 50px;
 }
 
 .spinner > p {
+  margin-top:14px;
   font-size: 18px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .spinner {
+    margin-top: 150px;
+  }
+
+  .spinner > img {
+    width: 40px;
+  }
+  .spinner > p {
+    font-size: 14px;
+    font-weight: 600;
+  }
 }

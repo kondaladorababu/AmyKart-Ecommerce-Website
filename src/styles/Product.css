@@ -157,18 +157,19 @@ so considered link as the product &  added the products css too */
 
   .product_image {
     flex: 0.35;
+    height: fit-content;
     width: 100%;
     padding: 0px;
   }
 
   .product_image > img {
-    max-height: 170px;
+    height: 200px;
     width: 120px;
     object-fit: contain;
   }
 
   .product_info {
-    /* min-height: 200px; */
+    max-height: max-content;
     min-height: 100%;
     width: 100%;
 
