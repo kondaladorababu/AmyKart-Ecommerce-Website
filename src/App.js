@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import ProductPage from './Components/ProductPage';
 import Notification from './Components/Notification';
+import Footer from './Components/Footer';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -45,6 +46,7 @@ function App() {
             <>
               <Header />
               <Home />
+              <Footer />
             </>
           }></Route>
 
@@ -52,6 +54,7 @@ function App() {
             <>
               <Header />
               <Home />
+              <Footer />
             </>
           }></Route>
 
@@ -67,6 +70,7 @@ function App() {
             <>
               <Header />
               <Checkout />
+              <Footer />
             </>
           }>
           </Route>
@@ -75,6 +79,7 @@ function App() {
             <>
               <Header />
               <ProductPage />
+              <Footer />
             </>
           }>
           </Route>

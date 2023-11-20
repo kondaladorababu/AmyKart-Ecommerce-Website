@@ -20,7 +20,7 @@ function Checkout() {
                     (
                         <div>
                             <h2>Your Basket is Empty</h2>
-                            {!user ? <p>Login to Add Products to Your Basket</p> : <p>You Have no Items in Your Basket</p>}
+                            {!user ? <p>Add Products to see in Your Basket</p> : <p>You Have no Items in Your Basket</p>}
                         </div>
                     ) : (
                         <div>
