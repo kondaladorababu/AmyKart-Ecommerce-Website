@@ -7,7 +7,7 @@
   width: 100%;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   z-index: -1;
-  margin-bottom: -200px;
+  margin-bottom: -300px;
 }
 
 .productPage_link {
@@ -34,5 +34,15 @@
     /* transform: scaleX(1.2);  */
     overflow: hidden;
     margin: 0 auto; /* Center the image horizontally */
+  }
+
+  .home_row {
+    margin-top: -60px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .home_row {
+    margin-top: 100px;
   }
 }

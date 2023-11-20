@@ -3,8 +3,8 @@ import '../styles/CheckTotal.css';
 import { useStateValue } from '../Store/StateProvider';
 
 function CheckTotal() {
-    const {state} = useStateValue();
-    const { basket, totalPrice } = state;
+    const { state } = useStateValue();
+    const { user, basket, totalPrice } = state;
 
     return (
         <div className='subtotal'>
@@ -16,6 +16,8 @@ function CheckTotal() {
             </div>
 
             <button>Proceed to Checkout</button>
+
+            {!user && <p className='proceed_check'>*Please Login to Proceed*</p>}
         </div>
     )
 }

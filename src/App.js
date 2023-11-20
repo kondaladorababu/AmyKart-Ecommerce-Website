@@ -51,8 +51,6 @@ function App() {
           <Route exact path='/HomePage' element={
             <>
               <Header />
-              {/* <Notification /> */}
-
               <Home />
             </>
           }></Route>

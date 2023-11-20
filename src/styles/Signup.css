@@ -20,6 +20,7 @@
   border: 1px solid #272727;
   border-radius: 5px;
   padding: 20px;
+  padding-bottom: 35px;
 
   display: flex;
   flex-direction: column;
@@ -66,6 +67,7 @@
 
 a {
   text-decoration: none;
+  margin-right: 5px;
 }
 
 .signin {
@@ -90,10 +92,11 @@ a {
   background-color: aliceblue;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .signup_page {
-    width: 60vw;
-    height: 40vh;
+    width: 80vw;
+    height: 45vh;
+    padding-bottom: 20px;
   }
 
   .button_content > button {
@@ -101,11 +104,10 @@ a {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .signup_page {
     width: 80vw;
-    height: 45vh;
-    padding-bottom: 20px;
+    height: 90%;
   }
 
   .button_content > button {

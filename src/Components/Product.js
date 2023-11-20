@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 
 
 function Product({ id, category, title, price, description, image, rating }) {
-    const { dispatch } = useStateValue();
+    const { state, dispatch } = useStateValue();
+    const { notifications } = state;
 
     const addToBasket = (e) => {
         e.preventDefault(); //to stop activating link navigation when clicked add to cart button
@@ -23,13 +24,20 @@ function Product({ id, category, title, price, description, image, rating }) {
             },
         });
 
+        const newNotification = {
+            id: notifications.length + 1,
+            message: 'Added to Basket',
+        };
+
         dispatch({
             type: 'ADD_NOTIFICATION',
+            notific: newNotification,
         });
 
         setTimeout(() => {
             dispatch({
                 type: 'REMOVE_NOTIFICATION',
+                idOfNotific: newNotification.id,
             });
         }, 3000);
     };

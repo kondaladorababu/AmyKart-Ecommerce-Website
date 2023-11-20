@@ -3,11 +3,11 @@ import '../styles/ProductPage.css';
 import { useLocation } from 'react-router-dom';
 import { useStateValue } from '../Store/StateProvider';
 
-
 function ProductPage() {
     const location = useLocation();
     const { productData } = location.state;
-    const { dispatch } = useStateValue();
+    const { state, dispatch } = useStateValue();
+    const { notifications } = state;
 
     const handleAddProduct = () => {
         dispatch({
@@ -21,13 +21,20 @@ function ProductPage() {
             },
         });
 
+        const newNotification = {
+            id: notifications.length + 1,
+            message: 'Added to Basket',
+        };
+
         dispatch({
             type: 'ADD_NOTIFICATION',
+            notific: newNotification,
         });
 
         setTimeout(() => {
             dispatch({
                 type: 'REMOVE_NOTIFICATION',
+                idOfNotific: newNotification.id,
             });
         }, 3000);
     }

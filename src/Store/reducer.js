@@ -109,20 +109,14 @@ function reducer(state, action) {
                 totalPrice: 0,
             }
         case 'ADD_NOTIFICATION':
-            const newNotification = {
-                id: [...state.notifications].length + 1,
-                message: 'Added to Basket',
-            };
-
-            const updatedNotifications = [...state.notifications, newNotification];
+            const updatedNotifications = [...state.notifications, action.notific];
 
             return {
                 ...state,
                 notifications: updatedNotifications,
             }
         case 'REMOVE_NOTIFICATION':
-            const removedNotifications = [...state.notifications].filter(notif => notif.id !== [...state.notifications].length);
-
+            const removedNotifications = [...state.notifications].filter(notif => notif.id !== action.idOfNotific);
             return {
                 ...state,
                 notifications: removedNotifications,

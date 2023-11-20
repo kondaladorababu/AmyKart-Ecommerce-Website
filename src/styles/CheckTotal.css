@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 250px;
-  height: 100px;
+  width: 100%;
+  min-height: 100px;
+  max-height: 180px;
   padding: 20px;
   background-color: aliceblue;
   border: 1px solid #dddddd;
@@ -38,9 +39,16 @@
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
 }
-@media only screen and (max-width: 800px) {
+.proceed_check {
+  margin-top: 7px;
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
   .subtotal {
-    width: 64%;
+    width: 91%;
   }
 }
 
