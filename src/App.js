@@ -79,7 +79,7 @@ function App() {
             <>
               <Header />
               <ProductPage />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }>
           </Route>
