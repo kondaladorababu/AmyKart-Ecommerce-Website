@@ -20,6 +20,7 @@
 
 .back_to_top:hover {
   background-color: #455266;
+  cursor: pointer;
 }
 
 .back_to_top > p {

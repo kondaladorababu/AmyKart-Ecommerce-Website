@@ -48,9 +48,9 @@ function Footer() {
                 <div className="box">
                     <h5>Let Us Help You</h5>
                     <ul>
-                        <li>About Us</li>
-                        <li>Careers</li>
-                        <li>Press releases</li>
+                        <li>Contact Us</li>
+                        <li>Ideas</li>
+                        <li>help improve</li>
                         <li>Amazon Science</li>
                     </ul>
                 </div>

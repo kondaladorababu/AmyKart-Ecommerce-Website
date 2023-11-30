@@ -8,7 +8,6 @@ import { auth } from '../firebase';
 
 
 function Header() {
-    // const navigate = useNavigate();
     const { state, dispatch } = useStateValue();
     const { products, basket, user } = state;
 

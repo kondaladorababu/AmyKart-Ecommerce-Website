@@ -79,7 +79,6 @@ function App() {
             <>
               <Header />
               <ProductPage />
-              {/* <Footer /> */}
             </>
           }>
           </Route>

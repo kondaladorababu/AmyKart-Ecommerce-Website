@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import '../styles/Home.css';
 import Product from './Product';
 import axios from 'axios';
@@ -19,7 +19,7 @@ function Home() {
         });
     };
 
-    async function fetchProducts() {
+    const fetchProducts = useCallback(async () => {
         setIsfetching(true);
         try {
             const response = await axios.get('https://fakestoreapi.com/products');
@@ -33,15 +33,17 @@ function Home() {
                 type: 'SET_DATA',
                 data: resData,
             });
+            setError('');
         } catch (error) {
             setError(error);
         }
         setIsfetching(false);
-    }
+
+    }, [dispatch, setIsfetching, setError]);
 
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [fetchProducts]);
 
     if (error) {
         return <Modal onClose={closeModal} info={'Error Fetching Products . Please Try Again Later'} />
