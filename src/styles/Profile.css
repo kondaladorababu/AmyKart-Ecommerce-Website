@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e9d7ff;
+  background: linear-gradient(to right, #e1f0ff 40%, #c8a6ff);
   height: 90vh;
 }
 
@@ -12,8 +12,6 @@
   flex-direction: column;
   border-radius: 7px;
   overflow: hidden;
-
-  /* padding: 10px; */
 
   /* box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2); */
   box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5),
