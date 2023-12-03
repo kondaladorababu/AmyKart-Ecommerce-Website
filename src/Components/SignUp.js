@@ -74,47 +74,41 @@ function SignUp() {
         <div className='signup_container'>
             {isModalOpen && <Modal onClose={closeModal} info={modalMessage} />}
 
-            <img
-                className="main_logo"
-                src="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/woodland-gardening-amazon-png-logo-vector-8.png" alt="Amazon"
-            />
-
-            <form onSubmit={register} action="">
+            <form onSubmit={register}>
                 <div className='signup_page'>
                     <h2>Create Your Account</h2>
 
-                    <div className="input_email">
+                    <div className="input_new_email">
                         <label htmlFor="email">Email or Phone Number</label>
                         <input value={email} onChange={handleEmail} type="text" id="email" name="email" placeholder="Enter your email or phone number" required />
                     </div>
 
-                    <div className="input_email">
+                    <div className="input_new_password">
                         <label id="password">Password</label>
                         <input value={password} onChange={handlePassword} type="password" id="password" name="password" placeholder="Enter your password" required />
                     </div>
 
-                    <div className="input_email">
+                    <div className="input_new_password_again">
                         <label id="passwordConfirm">Confirm Password</label>
                         <input value={confirmPassword} onChange={handleConfirmPassword} type="password" id="passwordConfirm" name="password" placeholder="confirm Password" required />
                     </div>
 
 
                     <div className="button_content">
-                        <button >Create Account</button>
+                        <button className='create-your-account'>Create Account</button>
                         <h6>
-                            By continuing, you agree to Amazon's and <a href="/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&amp;nodeId=200545940">Conditions of Use</a>
-                            <a href="/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&amp;nodeId=200534380">Privacy Notice</a>
+                            By continuing, you agree to AmyKart's and Privacy & Policie's
                         </h6>
                     </div>
+
+                    <Link to='/login' className="custom-link">
+                        <div className="signin">
+                            <button className='sign-in-button'>Sign In</button>
+                        </div>
+                    </Link>
                 </div>
             </form>
 
-
-            <Link to='/login'>
-                <div className="signin">
-                    <button>Sign In</button>
-                </div>
-            </Link>
         </div>
 
 

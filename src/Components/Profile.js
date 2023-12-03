@@ -7,7 +7,7 @@ function Profile() {
         <div className='profile'>
             <div className="profile-container">
                 <div className="profile-header">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5KENnAJ_Vfx8W3gzM_U79r3zNwppNXCknA&usqp=CAU" alt="Background photo" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5KENnAJ_Vfx8W3gzM_U79r3zNwppNXCknA&usqp=CAU" alt="Background_photo" />
                 </div>
                 <div className="profile-main">
                     <div className="profile-image">
