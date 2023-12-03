@@ -1,52 +1,93 @@
 .header {
-  background-color: #131921;
+  background-color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 10px 40px;
+
+  box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
 .header_logo {
-  width: 100px;
-  object-fit: contain;
-  margin: 0 20px;
-  margin-top: 18px;
+  display: flex;
   cursor: pointer;
+  color: #551a8b;
+}
+
+.logo {
+  font-size: 35px !important;
+}
+
+.header_logo > h3 {
+  font-size: 25px;
 }
 
 .header_nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
 .header_search {
+  background-color: aliceblue;
   display: flex;
-  flex: 1;
-  /* flex 1 is effecting the one with 100% width which is input bar only */
+  width: 100%;
+ 
+  margin-right: 20px;
 }
 
 .header_searchInput {
-  height: 12px;
-  padding: 10px;
+  padding: 5px 10px;
   border: none;
   width: 100%;
-  border-radius: 5px 0px 0px 5px;
+  
+  background: none;
+  outline: none;
 }
 
 .header_searchIcon {
   background-color: #cd9042;
-  padding: 5px;
-  height: 22px !important;
-  /* T R B L */
-  border-radius: 0px 5px 5px 0px;
+  padding: 5px 10px;
+  height: 100%;
+  background: none;
+}
+
+.mobileHeaderSearch {
+  display: none;
 }
 
 .header_link {
-  color: white;
+  color: #551a8b;
   text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header_optionBasket {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.header_optionFavorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headerBasketMobile_link {
+  display: none;
+}
+
+.header_basketCount {
+  margin-left: 5px;
+  margin-right: 10px;
+  /* padding-top: 5px; */
 }
 
 .header_option {
@@ -63,26 +104,6 @@
 .header_optionLineTwo {
   font-size: 13px;
   font-weight: 800;
-}
-
-.header_optionBasket {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.user_name {
-  font-weight: 800;
-  color: #cd9042;
-}
-
-.headerBasketMobile_link {
-  display: none;
-}
-
-.header_basketCount {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .bump {
@@ -112,32 +133,71 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+  }
+
   .header_logo {
-    width: 65px;
-    object-fit: contain;
-    margin: 0 15px;
-    margin-top: 18px;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .logo {
+    font-size: 26px !important;
+  }
+
+  .header_logo > h3 {
+    font-size: 16px;
+  }
+
+  .headerSearchInHamburger {
+    display: none;
+  }
+
+  .mobileHeaderSearch {
+    display: block;
+    margin-right: 10px;
+    display: flex;
+    width: 100%;
   }
 
   .header_searchInput {
-    width: 60%;
-    height: 8px;
+    width: 100%;
+    overflow: hidden;
   }
 
   .header_searchIcon {
-    height: 18px !important;
+    height: 20px !important;
+  }
+
+  .header_optionBasket {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .header_basketCount {
+    margin-left: 0px;
+    padding-top: 5px;
   }
 
   .fa-bars {
     display: block;
     font-size: 24px;
-    color: white;
-    margin-right: 20px;
+    color: #551a8b;
+    margin-right: 15px;
   }
 
   /* To make basket in the nav bar for mobile hide and the basket on header active  .mobileNavBarBasket_Link{ */
   .mobileNavBarBasket_Link {
+    display: none;
+  }
+
+  .mobileNavBarFav_Link {
     display: none;
   }
 
@@ -146,10 +206,6 @@
     display: block;
   }
 
-  /* .headeMobile_basketActive {
-    display: flex;
-    justify-content: center;
-  } */
 
   .header_nav {
     display: none;
@@ -195,15 +251,9 @@
     border-bottom: 1px solid white;
   }
 
-  .header_optionBasket {
-    margin: 10px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   .header_optionLineOne {
     font-size: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
 
   .header_optionLineTwo {
@@ -212,9 +262,7 @@
   }
 
   .header_basketCount {
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 10px;
+    margin-left: 2px;
   }
 
   .fa-xmark {
