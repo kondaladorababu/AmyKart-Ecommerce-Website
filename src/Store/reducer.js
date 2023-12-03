@@ -12,6 +12,7 @@ export const initialState = {
     products: [],
     finalProducts: [],
     basket: [],
+    favorited: [],
     totalPrice: 0,
     user: null,
     isModal: false,

@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; import { useSta
 import { auth } from '../firebase';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import PersonIcon from '@mui/icons-material/Person';
 
 function Header() {
     const { state, dispatch } = useStateValue();
@@ -86,7 +87,6 @@ function Header() {
 
 
     return (
-
         <nav className='header'>
 
             <Link to='/HomePage'>
@@ -135,10 +135,10 @@ function Header() {
                     </div>
                 </Link>
 
-                <Link to='' className='header_link'>
+                <Link to='/profile' className='header_link'>
                     <div className="header_option">
-                        <span className='header_optionLineOne'>Your</span>
-                        <span className='header_optionLineTwo'>Account</span>
+                        <PersonIcon />
+                        <span className='header_optionLineTwo'>Profile</span>
                     </div>
                 </Link>
 

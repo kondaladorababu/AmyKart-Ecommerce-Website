@@ -11,6 +11,8 @@ import { auth } from './firebase';
 import ProductPage from './Components/ProductPage';
 import Notification from './Components/Notification';
 import Footer from './Components/Footer';
+import Favorites from './Components/Favorites';
+import Profile from './Components/Profile';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -66,10 +68,28 @@ function App() {
             <SignUp />
           }></Route>
 
+          <Route exact path='/favorites' element={
+            <>
+              <Header />
+              <Favorites />
+              <Footer />
+            </>
+          }>
+          </Route>
+
           <Route exact path='/checkout' element={
             <>
               <Header />
               <Checkout />
+              <Footer />
+            </>
+          }>
+          </Route>
+
+          <Route exact path='/profile' element={
+            <>
+              <Header />
+              <Profile />
               <Footer />
             </>
           }>
