@@ -40,6 +40,7 @@ function LoginPage() {
         ).then(() => {
             //valid user redirect to home screen
             navigate('/HomePage');
+           
         }).catch(() => {
             openModal();
         });

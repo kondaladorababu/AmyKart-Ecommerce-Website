@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyADtlwcRzQobJDOCGsPcUvVZuik3qLFiu8",
-  authDomain: "a-clone-e933b.firebaseapp.com",
-  projectId: "a-clone-e933b",
-  storageBucket: "a-clone-e933b.appspot.com",
-  messagingSenderId: "995635248780",
-  appId: "1:995635248780:web:cacc167747f110a5db45a9",
-  measurementId: "G-JQNG8XDPQ2"
+  apiKey: "AIzaSyANwGA_BEA7ZHhhSQ8fUid4MYhXvya2V0s",
+  authDomain: "amykart-176e7.firebaseapp.com",
+  projectId: "amykart-176e7",
+  storageBucket: "amykart-176e7.appspot.com",
+  messagingSenderId: "268328753417",
+  appId: "1:268328753417:web:8c790f00f1062b163c1bd8",
+  measurementId: "G-K27FPZXCL8"
 };
 
 const app = initializeApp(firebaseConfig);

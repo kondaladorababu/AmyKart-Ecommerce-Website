@@ -1,8 +1,21 @@
 import React from 'react';
 import '../styles/Profile.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useStateValue } from '../Store/StateProvider';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+    const { state } = useStateValue();
+    const user = state.user;
+    const userName = user !== null ? user.email.split('@')[0].charAt(0).toUpperCase() + user.email.split('@')[0].slice(1) : 'user';
+    const userEmail = user !== null ? user.email : 'NOT SET';
+
+    const navigate = useNavigate();
+
+    const handleUserAuth = () => {
+        navigate('/login');
+    }
+
     return (
         <div className='profile'>
             <div className="profile-container">
@@ -12,7 +25,7 @@ function Profile() {
                 <div className="profile-main">
                     <div className="profile-image">
                         <AccountCircleIcon className='profile-icon' />
-                        <p>Dora Babu</p>
+                        <p>{userName}</p>
                         <p>Hyderabad</p>
                     </div>
                     <p className='profile-details-header'>Profile Details</p>
@@ -20,7 +33,7 @@ function Profile() {
                         <table border='0'>
                             <tr>
                                 <td>Full Name</td>
-                                <td className='user_info'>Not Set</td>
+                                <td className='user_info'>{userName}</td>
                             </tr>
                             <tr>
                                 <td>Gender</td>
@@ -28,7 +41,7 @@ function Profile() {
                             </tr>
                             <tr>
                                 <td>E-Mail</td>
-                                <td className='user_info'>Not Set</td>
+                                <td className='user_info'>{userEmail}</td>
                             </tr>
                             <tr>
                                 <td>Phone Number </td>
@@ -38,7 +51,7 @@ function Profile() {
                     </div>
                 </div>
                 <div className="profile-footer">
-                    <button className='sign-out'>Sign out</button>
+                    <button onClick={handleUserAuth} className='sign-out'>{user === null ? 'Sign In' : 'Sign Out'}</button>
                 </div>
             </div>
         </div>
