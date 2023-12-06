@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
   min-height: 100px;
   max-height: 180px;
   padding: 20px;
   background-color: aliceblue;
+  border-radius: 10px;
   border: 1px solid #dddddd;
 }
 
@@ -30,15 +31,24 @@
 }
 
 .subtotal > button {
-  background: #f0c14b;
-  border-radius: 2px;
+  background: #fff;
   width: 100%;
   height: 30px;
-  border: 1px solid;
+  border: none;
+  border-radius: 10px;
   margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-weight: bold;
+
 }
+
+.subtotal>button:hover{
+  background: black;
+  color: white;
+}
+
 .proceed_check {
   margin-top: 7px;
   color: red;
@@ -48,12 +58,7 @@
 
 @media only screen and (max-width: 768px) {
   .subtotal {
-    width: 91%;
+    width: auto;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .subtotal {
-    width: 88%;
-  }
-}
