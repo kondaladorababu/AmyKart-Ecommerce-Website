@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './Store/StateProvider';
+import { UiContextProvider } from './Store/UiContextProvider';
+import SubmitDetails from './Components/SubmitDetails';
+import OrderPlacedModal from './Components/OrderPlacedModal';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,9 +17,13 @@ if (!root) {
 
 root.render(
   <React.StrictMode>
-    <StateProvider>
-      <App />
-    </StateProvider>
+    <UiContextProvider>
+      <StateProvider>
+        <App />
+        <SubmitDetails />
+        <OrderPlacedModal />
+      </StateProvider>
+    </UiContextProvider>
   </React.StrictMode>
 );
 

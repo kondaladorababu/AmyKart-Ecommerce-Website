@@ -21,7 +21,7 @@ function Footer() {
                         <li>About Us</li>
                         <li>Careers</li>
                         <li>Press releases</li>
-                        <li>Amazon Science</li>
+                        <li>AmyKart Science</li>
                     </ul>
                 </div>
                 <div className="box">
@@ -38,11 +38,10 @@ function Footer() {
                         <li>About Us</li>
                         <li>Careers</li>
                         <li>Press releases</li>
-                        <li>Amazon Science</li>
+                        <li>AmyKart Science</li>
                         <li>Press releases</li>
-                        <li>Amazon Science</li>
+                        <li>AmyKart Science</li>
                         <li>Press releases</li>
-                        <li>Amazon Science</li>
                     </ul>
                 </div>
                 <div className="box">
@@ -51,7 +50,7 @@ function Footer() {
                         <li>Contact Us</li>
                         <li>Ideas</li>
                         <li>help improve</li>
-                        <li>Amazon Science</li>
+                        <li>AmyKart Science</li>
                     </ul>
                 </div>
             </div>

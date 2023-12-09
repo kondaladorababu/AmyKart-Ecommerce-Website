@@ -1,0 +1,25 @@
+.the-button {
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #111;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-weight: bold;
+  width: 200px;
+  padding: 10px 40px;
+}
+
+.the-button:hover {
+  background: black;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .the-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

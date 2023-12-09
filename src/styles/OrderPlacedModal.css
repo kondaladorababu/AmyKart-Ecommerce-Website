@@ -1,0 +1,8 @@
+@media only screen and (max-width: 768px) {
+    .main-text{
+        font-size: 14px;
+    }
+    .child-text{
+        font-size: 14px;
+    }
+}

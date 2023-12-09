@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/CheckTotal.css';
 import { useStateValue } from '../Store/StateProvider';
+import UiContext from '../Store/UiContextProvider';
 
 function CheckTotal() {
     const { state } = useStateValue();
     const { user, basket, totalPrice } = state;
+
+    const UiCtx = useContext(UiContext);
+
+    const openSubmitModal = () => {
+        UiCtx.showSubmitDetails();
+    }
 
     return (
         <div className='subtotal'>
@@ -15,8 +22,7 @@ function CheckTotal() {
                 </small>
             </div>
 
-            <button>Proceed to Checkout</button>
-
+            <button onClick={openSubmitModal}>Proceed to Checkout</button>
             {!user && <p className='proceed_check'>*Please Login to Proceed*</p>}
         </div>
     )
