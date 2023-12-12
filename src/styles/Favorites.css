@@ -1,6 +1,21 @@
-.favorites > p {
-  font-size: 20px;
-  font-weight: bold;
+.favorites {
+  padding: 40px;
+  padding-top: 0px;
+  background: linear-gradient(to right, #e1f0ff 40%, #c8a6ff);
+}
+
+
+.empty-favorites-info {
   text-align: center;
-  padding: 20px;
+  padding: 260px 100px;
+}
+
+.fav-text-heading {
+  padding: 10px 10px;
+  border-bottom: 1px solid black;
+}
+
+.favorite-row {
+  display: flex;
+  flex-wrap: wrap;
 }

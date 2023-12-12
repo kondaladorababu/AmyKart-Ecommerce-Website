@@ -40,7 +40,7 @@ function SubmitDetails() {
                 </div>
 
                 <div className="modal-actions">
-                    <Button type="button" onClick={handleClose} > close</Button>
+                    <Button type="button" onClick={handleClose} >Cancel</Button>
                     <Button>Submit Order</Button>
                 </div>
             </form>

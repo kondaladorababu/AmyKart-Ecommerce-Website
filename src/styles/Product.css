@@ -27,6 +27,7 @@ so considered link as the product &  added the products css too */
   /* padding-left: 20px; */
   min-height: 400px;
   max-height: 550px;
+  height: 100%;
   min-width: 20vw;
   max-width: 100%;
 
@@ -42,11 +43,44 @@ so considered link as the product &  added the products css too */
   width: 100%;
   padding: 10px;
   height: 45%;
+  /* transition: transform 650ms; */
+}
+
+/* for fav icon */
+.product {
+  position: relative;
+  overflow: hidden;
+}
+
+.fav {
+  position: absolute;
+  top: -0px;
+  left: -28px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2); /* border-color: #a88734 #9c7e31 #846a29; */
+  border-radius: 10px;
+  height: 25px;
   transition: transform 650ms;
 }
 
+.product:hover .fav {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: -9px;
+  padding: 5px;
+  transform: translateX(10px);
+}
+
+.fav {
+  color: #551a8b;
+  box-shadow: #ffffff;
+
+  overflow: hidden;
+}
+
 .product_image:hover {
-  transform: scale(1.10);
+  /* transform: scale(1.1); */
 }
 
 .product_image > img {
@@ -141,6 +175,7 @@ so considered link as the product &  added the products css too */
     height: 200px;
     min-height: 210px;
     min-width: 90vw;
+    height: 100%;
   }
 
   .product {

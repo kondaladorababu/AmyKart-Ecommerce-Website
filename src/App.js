@@ -11,9 +11,8 @@ import { auth } from './firebase';
 import ProductPage from './Components/ProductPage';
 import Notification from './Components/Notification';
 import Footer from './Components/Footer';
-import Favorites from './Components/Favorites';
 import Profile from './Components/Profile';
-import SubmitDetails from './Components/SubmitDetails';
+import Favorites from './Components/Favorites';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -49,7 +48,6 @@ function App() {
             <>
               <Header />
               <Home />
-              <SubmitDetails/>
               <Footer />
             </>
           }></Route>

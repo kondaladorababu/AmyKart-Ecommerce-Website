@@ -28,10 +28,12 @@ function reducer(state, action) {
                 user: action.user,
             }
         case 'SET_DATA':
+            let fp = action.data.map(obj => ({ ...obj, isFilled: false }));
+
             return {
                 ...state,
                 products: action.data,
-                finalProducts: action.data,
+                finalProducts: fp
             }
         case 'SEARCH_RESULTS':
             return {
@@ -108,6 +110,35 @@ function reducer(state, action) {
                 ...state,
                 basket: [],
                 totalPrice: 0,
+            }
+        case 'ADD_TO_FAVORITES':
+            let finalFavProducts = [...state.finalProducts].map(product => {
+                if (product.id === action.item.id) {
+                    return { ...product, isFilled: true };
+                }
+                return product;
+            })
+            let newFavorites = [...state.favorited, action.item];
+
+            return {
+                ...state,
+                finalProducts: finalFavProducts,
+                favorited: newFavorites,
+            }
+        case 'Remove_FROM_FAVORITES':
+            let finalProducts2 = [...state.finalProducts].map(product => {
+                if (product.id === action.item.id) {
+                    return { ...product, isFilled: false };
+                }
+                return product;
+            })
+
+            let updatedFavoritesList = [...state.favorited].filter(product => product.id !== action.item.id);
+
+            return {
+                ...state,
+                favorited: updatedFavoritesList,
+                finalProducts: finalProducts2,
             }
         case 'ADD_NOTIFICATION':
             const updatedNotifications = [...state.notifications, action.notific];

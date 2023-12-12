@@ -3,14 +3,14 @@ import '../styles/Header.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; import { useStateValue } from '../Store/StateProvider';
-import { auth } from '../firebase';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
 
+
 function Header() {
     const { state, dispatch } = useStateValue();
-    const { products, basket, user } = state;
+    const { products, basket } = state;
 
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
@@ -24,22 +24,21 @@ function Header() {
         setOpenMobileNav('mobile_nav_close');
     }
 
-    const handleLogin = () => {
-        if (user) {
-
-            auth.signOut()
-                .then(() => {
-                    //clear the basket & close the mobile nav bar
-                    dispatch({
-                        type: 'CLEAR_BASKET',
-                    });
-                    setOpenMobileNav('mobile_nav_close');
-                })
-                .catch((error) => {
-                    console.error('Error signing out:', error);
-                });
-        }
-    }
+    // const handleLogin = () => {
+    //     if (user) {
+    //         auth.signOut()
+    //             .then(() => {
+    //                 //clear the basket & close the mobile nav bar
+    //                 dispatch({
+    //                     type: 'CLEAR_BASKET',
+    //                 });
+    //                 setOpenMobileNav('mobile_nav_close');
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Error signing out:', error);
+    //             });
+    //     }
+    // }
 
     const userInputSearch = (e) => {
         setuserSearchData(e.target.value);
@@ -58,13 +57,15 @@ function Header() {
     }
 
     // If clicked on amazon logo set the finalproducts to products
-    const refreshPage = () => {
-        dispatch({
-            type: 'SET_DATA',
-            data: products,
-        });
-        setuserSearchData('');
-    }
+    // const refreshPage = (e) => {
+    //     e.preventDefault();
+    //     navigate('/HomePage');
+    // dispatch({
+    //     type: 'SET_DATA',
+    //     data: finalProducts,
+    // });
+    // setuserSearchData('');
+    // }
 
     //Make the cart bump when added items to cart
     //if basket len is changing which means item is added to cart
@@ -90,7 +91,7 @@ function Header() {
         <nav className='header'>
 
             <Link to='/HomePage'>
-                <div className="header_logo" onClick={refreshPage}>
+                <div className="header_logo" >
                     <StorefrontIcon className='logo' />
                     <h3>AmyKart</h3>
                 </div>
@@ -123,7 +124,7 @@ function Header() {
 
                 {/* hide favorite icon in mobile nav Bar */}
                 <Link to='/favorites' className='header_link mobileNavBarFav_Link'>
-                    <div className={`header_optionFavorite ${btnIsHighlighted ? 'bump' : ''}`}>
+                    <div className={`header_optionFavorite`}>
                         <FavoriteIcon />
                     </div>
                 </Link>

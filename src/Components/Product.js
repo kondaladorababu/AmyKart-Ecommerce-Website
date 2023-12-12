@@ -3,11 +3,64 @@ import '../styles/Product.css'
 import { useStateValue } from '../Store/StateProvider';
 import { truncate } from '../Store/reducer';
 import { Link } from 'react-router-dom';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-
-function Product({ id, category, title, price, description, image, rating }) {
+function Product({ id, category, title, price, description, image, rating, isFilled }) {
     const { state, dispatch } = useStateValue();
     const { notifications } = state;
+
+    let newNotification = null;
+
+    const toggleFill = (e) => {
+        e.preventDefault();
+        if (isFilled) {
+            dispatch({
+                type: 'Remove_FROM_FAVORITES',
+                item: {
+                    id: id,
+                },
+            });
+
+            newNotification = {
+                id: notifications.length + 1,
+                message: 'Removed from Favorites',
+            };
+
+
+        } else {
+            dispatch({
+                type: 'ADD_TO_FAVORITES',
+                item: {
+                    id: id,
+                    title: title,
+                    price: price,
+                    image: image,
+                    rating: rating,
+                    category: category,
+                    description: description,
+                    isFilled: true,
+                },
+            });
+
+            newNotification = {
+                id: notifications.length + 1,
+                message: 'Added to Favorites',
+            };
+        }
+
+        dispatch({
+            type: 'ADD_NOTIFICATION',
+            notific: newNotification,
+        });
+
+        setTimeout(() => {
+            dispatch({
+                type: 'REMOVE_NOTIFICATION',
+                idOfNotific: newNotification.id,
+            });
+        }, 3000);
+    };
 
     const addToBasket = (e) => {
         e.preventDefault(); //to stop activating link navigation when clicked add to cart button
@@ -47,9 +100,14 @@ function Product({ id, category, title, price, description, image, rating }) {
         <Link to='/productPage' key={id} state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link' >
 
             <div className='product' >
+                <div className="fav" onClick={toggleFill} >
+                    {isFilled && <FavoriteIcon />}
+                    {!isFilled && <FavoriteBorderOutlinedIcon className='favorite-icon' />}
+                </div>
                 <div className="product_image">
                     <img src={image} alt="" />
                 </div>
+
 
                 <div className="product_info">
                     <div className="product_details">
