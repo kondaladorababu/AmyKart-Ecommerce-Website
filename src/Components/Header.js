@@ -56,16 +56,10 @@ function Header() {
         });
     }
 
-    // If clicked on amazon logo set the finalproducts to products
-    // const refreshPage = (e) => {
-    //     e.preventDefault();
-    //     navigate('/HomePage');
-    // dispatch({
-    //     type: 'SET_DATA',
-    //     data: finalProducts,
-    // });
-    // setuserSearchData('');
-    // }
+    // If clicked on logo set the finalproducts to products
+    const refreshPage = () => {
+        setuserSearchData('');
+    }
 
     //Make the cart bump when added items to cart
     //if basket len is changing which means item is added to cart
@@ -91,17 +85,19 @@ function Header() {
         <nav className='header'>
 
             <Link to='/HomePage'>
-                <div className="header_logo" >
+                <div className="header_logo" onClick={refreshPage}>
                     <StorefrontIcon className='logo' />
                     <h3>AmyKart</h3>
                 </div>
             </Link>
 
+            {/* Mobile search Bar */}
             <div className='header_search mobileHeaderSearch'>
                 <input value={userSearchData} onChange={userInputSearch} type="text" className="header_searchInput" placeholder='Search for products' />
                 <SearchIcon onClick={getUserSearchData} className='header_searchIcon' />
             </div>
 
+            {/* Mobile Basket */}
             <Link to='/checkout' className='header_link headerBasketMobile_link'>
                 <div className={`header_optionBasket headeMobile_basketActive ${btnIsHighlighted ? 'bump' : ''}`}>
                     <ShoppingCartIcon />
@@ -123,12 +119,15 @@ function Header() {
                 <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
 
                 {/* hide favorite icon in mobile nav Bar */}
-                <Link to='/favorites' className='header_link mobileNavBarFav_Link'>
-                    <div className={`header_optionFavorite`}>
+                <Link to='/favorites' className='header_link'>
+                    <div className={`header_option header_optionFavorite`}>
                         <FavoriteIcon />
+                        {openMobileNav === 'mobile_nav' && <span className='header_optionLineTwo'>Favorites</span>}
+                        {/* show the text only in mobile view */}
                     </div>
                 </Link>
 
+                {/* hIDING THIS IN MOBILE NAV CAUSE OTHER BASKET FOR MOBILE MAIN BAR IS DISPLAYED */}
                 <Link to='/checkout' className='header_link mobileNavBarBasket_Link'>
                     <div className={`header_optionBasket ${btnIsHighlighted ? 'bump' : ''}`}>
                         <ShoppingCartIcon />

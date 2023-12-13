@@ -37,10 +37,27 @@
   display: flex;
 }
 
-
-.favorite{
+.favorite {
   color: #551a8b;
   box-shadow: #ffffff;
-
   overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .favorite-container {
+    flex-direction: column;
+    height: 300px;
+    width: 90%;
+  }
+
+  .favorite-container .image {
+    height: 180px;
+    background-color: #fff;
+  }
+
+  .favorite-container .image > img {
+    object-fit: contain;
+    width: 100%;
+    height: 180px;
+  }
 }

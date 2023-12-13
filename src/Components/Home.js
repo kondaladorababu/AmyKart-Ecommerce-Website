@@ -5,11 +5,12 @@ import axios from 'axios';
 import { useStateValue } from '../Store/StateProvider';
 import Spinner from './Spinner';
 import Modal from './Modal';
+let first = true;
 
 function Home() {
     const { state, dispatch } = useStateValue();
     const { finalProducts, isModal } = state;
-    const [isFetching, setIsfetching] = useState(true);
+    const [isFetching, setIsfetching] = useState(false);
     const [error, setError] = useState('');
 
     const closeModal = () => {
@@ -40,7 +41,10 @@ function Home() {
             }
             setIsfetching(false);
         }
-        fetchProducts();
+        if (first) {
+            first = false;
+            fetchProducts();
+        }
     }, [dispatch]);
 
     if (error) {
@@ -52,7 +56,7 @@ function Home() {
         <Fragment>
 
             <div className='home'>
-                <img className="home_image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
+                {/* <img className="home_image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" /> */}
                 {isFetching && <Spinner />}
                 {/* once finalproducts is set The refresh sets fetching true so spinner occurs but the final prdcts are alrdy set so that prd displac under spinner
                   so when fething is true dont show except soinner even though finalprdcts r ready*/}

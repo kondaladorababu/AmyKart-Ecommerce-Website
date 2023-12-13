@@ -198,10 +198,6 @@
     display: none;
   }
 
-  .mobileNavBarFav_Link {
-    display: none;
-  }
-
   /* to make the basket on header nav display in mobile view */
   .headerBasketMobile_link {
     display: block;
@@ -233,6 +229,7 @@
     height: 100%;
     width: 50vw;
     background-color: #232f3e;
+    color: #fff;
     overflow-x: hidden;
     transition: right 0.5s ease-in-out;
     z-index: 100;
@@ -249,6 +246,7 @@
     align-items: center;
     justify-content: space-around;
     padding-bottom: 10px;
+    color: #fff;
     border-bottom: 1px solid white;
   }
 

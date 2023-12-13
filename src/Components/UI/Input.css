@@ -15,13 +15,18 @@
   font: inherit;
   padding: 0.5rem;
   border-radius: 4px;
- 
   outline: none;
+  border: 1px solid #ccc;
 }
 
 @media only screen and (max-width: 768px) {
   .control input {
-    width: 80%;
-    /* max-width: 100%; */
+    /* width: 80%; */
+    padding: 5px 0px;
+    /* border: none; */
+  }
+  .control label {
+    font-size: 12px;
+    margin-bottom: 0.5rem;
   }
 }

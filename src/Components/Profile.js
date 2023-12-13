@@ -31,22 +31,24 @@ function Profile() {
                     <p className='profile-details-header'>Profile Details</p>
                     <div className="profile-details">
                         <table border='0'>
-                            <tr>
-                                <td>Full Name</td>
-                                <td className='user_info'>{userName}</td>
-                            </tr>
-                            <tr>
-                                <td>Gender</td>
-                                <td className='user_info'>Not Set</td>
-                            </tr>
-                            <tr>
-                                <td>E-Mail</td>
-                                <td className='user_info'>{userEmail}</td>
-                            </tr>
-                            <tr>
-                                <td>Phone Number </td>
-                                <td className='user_info'>Not Set</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Full Name</td>
+                                    <td className='user_info'>{userName}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td className='user_info'>Not Set</td>
+                                </tr>
+                                <tr>
+                                    <td>E-Mail</td>
+                                    <td className='user_info'>{userEmail}</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone Number</td>
+                                    <td className='user_info'>Not Set</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

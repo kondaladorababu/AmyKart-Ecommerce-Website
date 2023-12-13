@@ -4,7 +4,6 @@
   background: linear-gradient(to right, #e1f0ff 40%, #c8a6ff);
 }
 
-
 .empty-favorites-info {
   text-align: center;
   padding: 260px 100px;
@@ -18,4 +17,21 @@
 .favorite-row {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .favorites {
+    padding: 30px;
+  }
+
+  .favorite-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .empty-favorites-info {
+    text-align: center;
+    padding: 160px 0px;
+  }
 }
