@@ -1,4 +1,4 @@
-AmyKart - shopping made EasyAmyKart - shopping made Easy
+AmyKart - shopping made EasyAmyKart 
 
 This Project is a responsive e-commerce web application was meticulously crafted using React JS. This endeavor highlighted the adept utilization of critical React components, including useEffect, useContext API, and useState hooks, ensuring a seamless user experience. React Router DOM was also thoughtfully integrated, enabling intuitive navigation within the application. Additionally, Firebase authentication was implemented to guarantee a secure and user-friendly sign-in process. This project demonstrated the app's proficiency in modern web development technologies and responsive design principles.
 
