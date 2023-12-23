@@ -56,7 +56,6 @@ function Home() {
         <Fragment>
 
             <div className='home'>
-                {/* <img className="home_image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" /> */}
                 {isFetching && <Spinner />}
                 {/* once finalproducts is set The refresh sets fetching true so spinner occurs but the final prdcts are alrdy set so that prd displac under spinner
                   so when fething is true dont show except soinner even though finalprdcts r ready*/}

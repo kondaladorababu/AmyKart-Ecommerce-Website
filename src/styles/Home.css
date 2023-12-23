@@ -37,10 +37,6 @@
     overflow: hidden;
     margin: 0 auto; /* Center the image horizontally */
   }
-
-  .home_row {
-    margin-top: -60px;
-  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 768px) {
