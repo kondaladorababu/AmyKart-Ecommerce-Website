@@ -59,6 +59,10 @@ function Header() {
     // If clicked on logo set the finalproducts to products
     const refreshPage = () => {
         setuserSearchData('');
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            data: products,
+        });
     }
 
     //Make the cart bump when added items to cart
