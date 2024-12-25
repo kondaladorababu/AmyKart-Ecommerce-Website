@@ -13,6 +13,7 @@ import Notification from './Components/Notification';
 import Footer from './Components/Footer';
 import Profile from './Components/Profile';
 import Favorites from './Components/Favorites';
+import Category from './Components/category/Category';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -47,7 +48,7 @@ function App() {
           <Route exact path='/' element={
             <>
               <Header />
-              <Home />
+              <Category />
               <Footer />
             </>
           }></Route>
