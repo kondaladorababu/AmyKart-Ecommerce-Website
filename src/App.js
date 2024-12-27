@@ -1,18 +1,18 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from './Components/Header';
-import Home from './Components/Home';
-import Checkout from './Components/Checkout';
-import LoginPage from './Components/LoginPage';
-import SignUp from './Components/SignUp';
+import Header from './Components/common/Header';
+import Products from './Components/product/Products';
+import Checkout from './Components/checkout/Checkout';
+import LoginPage from './Components/login/LoginPage';
+import SignUp from './Components/login/SignUp';
 import { useStateValue } from './Store/StateProvider';
 import { useEffect } from 'react';
 import { auth } from './firebase';
-import ProductPage from './Components/ProductPage';
-import Notification from './Components/Notification';
-import Footer from './Components/Footer';
-import Profile from './Components/Profile';
-import Favorites from './Components/Favorites';
+import ProductPage from './Components/product/ProductPage';
+import Notification from './Components/common/Notification';
+import Footer from './Components/common/Footer';
+import Profile from './Components/profile/Profile';
+import Favorites from './Components/favorite/Favorites';
 import Category from './Components/category/Category';
 
 function App() {
@@ -56,7 +56,15 @@ function App() {
           <Route exact path='/HomePage' element={
             <>
               <Header />
-              <Home />
+              <Category />
+              <Footer />
+            </>
+          }></Route>
+
+          <Route exact path='/products/:categoryId' element={
+            <>
+              <Header />
+              <Products />
               <Footer />
             </>
           }></Route>

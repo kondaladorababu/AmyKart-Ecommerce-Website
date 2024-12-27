@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Product.css'
-import { useStateValue } from '../Store/StateProvider';
-import { truncate } from '../Store/reducer';
+import '../../styles/Product.css';
+import { useStateValue } from '../../Store/StateProvider';
+import { truncate } from '../../Store/reducer';
 import { Link } from 'react-router-dom';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';

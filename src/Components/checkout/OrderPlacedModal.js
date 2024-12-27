@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import UiContext from '../Store/UiContextProvider';
-import Button from './UI/Button';
-import MOdal from './UI/MOdal';
-import '../styles/OrderPlacedModal.css';
+import UiContext from '../../Store/UiContextProvider';
+import Button from '../UI/Button';
+import MOdal from '../UI/MOdal';
+import '../../styles/OrderPlacedModal.css';
 
 function OrderPlacedModal() {
     const UiCtx = useContext(UiContext);

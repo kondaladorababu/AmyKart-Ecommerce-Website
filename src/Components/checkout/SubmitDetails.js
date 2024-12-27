@@ -1,10 +1,10 @@
 import React, { useContext, useRef } from 'react'
-import Input from './UI/Input'
-import Button from './UI/Button';
-import '../styles/SubmitDetails.css';
-import MOdal from './UI/MOdal';
-import UiContext from '../Store/UiContextProvider';
-import { useStateValue } from '../Store/StateProvider';
+import Input from '../UI/Input'
+import Button from '../UI/Button';
+import '../../styles/SubmitDetails.css';
+import MOdal from '../UI/MOdal';
+import UiContext from '../../Store/UiContextProvider';
+import { useStateValue } from '../../Store/StateProvider';
 
 function SubmitDetails() {
     const UiCtx = useContext(UiContext);

@@ -1,13 +1,16 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import '../styles/Home.css';
+import '../../styles/Home.css';
 import Product from './Product';
 import axios from 'axios';
-import { useStateValue } from '../Store/StateProvider';
-import Spinner from './Spinner';
-import Modal from './Modal';
+import { useStateValue } from '../../Store/StateProvider';
+import Spinner from '../common/Spinner';
+import Modal from '../UI/MOdal';
+import { useParams } from 'react-router-dom';
 let first = true;
 
-function Home() {
+function Products() {
+    const { categoryId } = useParams();
+
     const { state, dispatch } = useStateValue();
     const { finalProducts, isModal } = state;
     const [isFetching, setIsfetching] = useState(false);
@@ -54,13 +57,13 @@ function Home() {
 
     return (
         <Fragment>
-
             <div className='home'>
                 {isFetching && <Spinner />}
                 {/* once finalproducts is set The refresh sets fetching true so spinner occurs but the final prdcts are alrdy set so that prd displac under spinner
                   so when fething is true dont show except soinner even though finalprdcts r ready*/}
                 {!isFetching && finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
                 {!isFetching && finalProducts && <div className="home_row">
+
                     {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
                     {finalProducts.map((product) => (
                         <Product
@@ -88,4 +91,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Products

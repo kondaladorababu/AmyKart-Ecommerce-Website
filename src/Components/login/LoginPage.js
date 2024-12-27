@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../styles/LoginPage.css';
+import '../../styles/LoginPage.css';
 import { Link } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Modal from './Modal';
+import Modal from '../UI/MOdal';
 
 
 function LoginPage() {
@@ -40,7 +40,7 @@ function LoginPage() {
         ).then(() => {
             //valid user redirect to home screen
             navigate('/HomePage');
-           
+
         }).catch(() => {
             openModal();
         });
@@ -101,4 +101,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage
+export default LoginPage;

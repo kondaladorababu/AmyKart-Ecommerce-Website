@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../styles/Signup.css';
+import '../../styles/Signup.css';
 import { Link } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import Modal from './Modal';
+import Modal from '../UI/MOdal';
 
 function SignUp() {
     const [isModalOpen, setIsModalOpen] = useState(false);

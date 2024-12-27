@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './Store/StateProvider';
 import { UiContextProvider } from './Store/UiContextProvider';
-import SubmitDetails from './Components/SubmitDetails';
-import OrderPlacedModal from './Components/OrderPlacedModal';
+import SubmitDetails from './Components/checkout/SubmitDetails';
+import OrderPlacedModal from './Components/checkout/OrderPlacedModal';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

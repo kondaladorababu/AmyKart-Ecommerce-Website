@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/CheckOutProduct.css'
-import { useStateValue } from '../Store/StateProvider';
-import { truncate } from '../Store/reducer';
+import '../../styles/CheckOutProduct.css';
+import { useStateValue } from '../../Store/StateProvider';
+import { truncate } from '../../Store/reducer';
 import QuantityButton from './QuantityButton';
 
 function CheckOutProduct({ id, title, price, image, quantity }) {

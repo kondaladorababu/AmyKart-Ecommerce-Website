@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import '../styles/Checkout.css';
-import { useStateValue } from '../Store/StateProvider';
+import '../../styles/Checkout.css';
+import { useStateValue } from '../../Store/StateProvider';
 import CheckOutProduct from './CheckOutProduct';
 import CheckTotal from './CheckTotal';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Notification.css';
+import '../../styles/Notification.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { useStateValue } from '../Store/StateProvider';
+import { useStateValue } from '../../Store/StateProvider';
 
 function Notification() {
     const { state } = useStateValue();

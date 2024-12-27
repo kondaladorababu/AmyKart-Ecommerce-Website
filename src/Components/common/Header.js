@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/Header.css';
+import '../../styles/Header.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; import { useStateValue } from '../Store/StateProvider';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; import { useStateValue } from '../../Store/StateProvider';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';

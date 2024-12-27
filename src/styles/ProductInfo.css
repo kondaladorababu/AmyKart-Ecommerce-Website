@@ -1,0 +1,36 @@
+.productPage_productInfo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+/* .productInfo_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+} */
+
+.productInfo_details {
+    background-color: #e1f0ff;
+    padding: 20px;
+    box-shadow: none;
+    border: none;
+}
+
+.productPage_table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    border: none;
+    /* Remove border for the table */
+}
+
+.productPage_table td {
+    padding: 8px;
+    border: none;
+    /* Remove border for table cells */
+}
+
+.productPage_table td:first-child {
+    font-weight: bold;
+    width: 30%;
+}

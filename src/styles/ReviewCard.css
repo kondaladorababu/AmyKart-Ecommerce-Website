@@ -1,0 +1,33 @@
+.review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding:0.8rem 1rem;
+    margin: 3px 0px;
+    border-radius: 0.3rem;
+    background-color: #e1f0ff;
+    /* Light gray background color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.review_message {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #333;
+}
+
+
+@media screen and (max-width: 768px) {
+    .review-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: auto;
+        height: 100%;
+        padding: 0.5rem;
+        margin: 5px 0px;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}

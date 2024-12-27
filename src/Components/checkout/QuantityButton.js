@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/QuantityButton.css';
-import { useStateValue } from '../Store/StateProvider';
+import '../../styles/QuantityButton.css';
+import { useStateValue } from '../../Store/StateProvider';
 
 function QuantityButton(props) {
     const { dispatch } = useStateValue();

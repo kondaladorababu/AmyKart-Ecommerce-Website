@@ -1,22 +1,32 @@
 .productPage {
-  background-color: rgb(194, 194, 194);
-  height: 90vh;
+  background: linear-gradient(to right, #c8a6ff, #e1f0ff 40%);
+  padding: 30px;
+  margin: auto;
+
+  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-y: auto;
-  background: linear-gradient(to right, #c8a6ff,  #e1f0ff 40%);
+  scroll-behavior: smooth;
+  /* Enable smooth scrolling */
+
 }
 
 .productPage_container {
-  height: 500px;
-  width: 900px;
-  background-color: rgb(240, 240, 240);
-  border-radius: 10px;
+  height: 85vh;
+  /* width: 90vw; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productPage_left {
+  height: 100%;
+  width: 40%;
+  padding-right: 20px;
+
 }
 
 .productPage_image {
@@ -30,7 +40,7 @@
   background-color: rgb(255, 255, 255);
 }
 
-.productPage_image > img {
+.productPage_image>img {
   height: 80%;
   max-width: 300px;
   object-fit: contain;
@@ -38,25 +48,58 @@
   transition: transform 650ms;
 }
 
-.productPage_image > img:hover {
+.productPage_image>img:hover {
   transform: scale(1.06);
 }
 
-.productPage_info {
-  flex: 0.6;
+.product_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: 100%;
+  width: 60%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.product_right::-webkit-scrollbar {
+  width: 12px;
+}
+
+.product_right::-webkit-scrollbar-track {
+  background: #f1f1f1;
   border-radius: 10px;
+}
+
+.product_right::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.product_right::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.productPage_info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(192, 192, 192);
+
+  flex: 0 0 auto;
+  width: 100%;
+  /* border-radius: 10px; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
-  background-color: rgb(235, 235, 235);
+
 }
 
-.productPage_details {
+.productPage_main_info {
   display: flex;
   flex-direction: column;
+
 }
 
 .productPage_title {
@@ -65,12 +108,13 @@
 }
 
 .productPage__price {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 600;
 }
 
 .productPage_description {
   margin-top: 5px;
+  margin-bottom: 10px;
   font-size: 15px;
   font-weight: 500;
   line-height: 18px;
@@ -82,14 +126,13 @@
 }
 
 .productPage_addProduct {
-  margin-top: 10px;
-  width: 100%;
+  width: 20%;
   font-size: 18px;
   font-weight: 600;
   border: 1px solid rgb(192, 192, 192);
   border-radius: 10px;
   padding: 8px;
-
+  cursor: pointer;
   background-color: #000000;
   color: white;
 
@@ -101,21 +144,55 @@
   color: rgb(0, 0, 0);
 }
 
+.productPage_reviews {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.rating_title {
+  align-self: flex-start;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.productPage_reviewsContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.similar_products_container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.similar_products_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
 @media screen and (max-width: 768px) {
   .productPage {
     background-color: rgb(194, 194, 194);
     justify-content: center;
     align-items: center;
-    margin: auto;
-    overflow-x: auto;
-    height: 90vh;
-    overflow-y: hidden;
+    height: 100%;
+    width: auto;
+    /* margin: 0 10px; */
+    overflow-y: auto;
   }
 
   .productPage_container {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: auto;
   }
 
   .productPage_image {
@@ -124,10 +201,20 @@
     background-color: rgb(255, 255, 255);
   }
 
-  .productPage_image > img {
+  .productPage_image>img {
     max-height: 250px;
     width: 100%;
     padding: 10px;
+  }
+
+  .productPage_left {
+    width: 100%;
+
+  }
+
+  .product_right {
+    width: 100%;
+    /* padding: 10px; */
   }
 
   .productPage_info {
@@ -135,7 +222,7 @@
     justify-content: flex-start;
   }
 
-  .productPage_details {
+  .productPage_main_info {
     display: flex;
     flex-direction: column;
   }
@@ -175,5 +262,20 @@
     color: white;
 
     transition: 0.2s ease-in-out;
+  }
+
+  .productPage_reviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+  }
+
+  .productPage_reviewsContainer {
+    width: inherit;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
   }
 }

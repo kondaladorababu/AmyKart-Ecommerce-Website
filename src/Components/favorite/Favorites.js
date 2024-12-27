@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Favorites.css';
+import '../../styles/Favorites.css';
 import FavoritedProduct from './FavoritedProduct';
-import { useStateValue } from '../Store/StateProvider';
+import { useStateValue } from '../../Store/StateProvider';
 
 function Favorites() {
     const { state } = useStateValue();

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import '../styles/CheckTotal.css';
-import { useStateValue } from '../Store/StateProvider';
-import UiContext from '../Store/UiContextProvider';
+import '../../styles/CheckTotal.css';
+import { useStateValue } from '../../Store/StateProvider';
+import UiContext from '../../Store/UiContextProvider';
 
 function CheckTotal() {
     const { state } = useStateValue();
