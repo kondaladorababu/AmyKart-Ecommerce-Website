@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Notification.css';
+import '../common/Notification.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useStateValue } from '../../Store/StateProvider';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Footer.css';
+import '../common/Footer.css';
 
 function Footer() {
     const handleBackToTop = () => {

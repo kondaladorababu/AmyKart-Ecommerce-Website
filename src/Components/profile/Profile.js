@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Profile.css';
+import '../profile/Profile.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useStateValue } from '../../Store/StateProvider';
 import { useNavigate } from 'react-router-dom';

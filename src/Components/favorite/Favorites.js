@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Favorites.css';
+import '../favorite/Favorites.css';
 import FavoritedProduct from './FavoritedProduct';
 import { useStateValue } from '../../Store/StateProvider';
 

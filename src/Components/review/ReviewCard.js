@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/ReviewCard.css';
+import '../review/ReviewCard.css';
 import BasicRating from './BasicRating';
 
 function ReviewCard({ review }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/ProductPage.css';
+import '../product/ProductPage.css';
 import { useLocation } from 'react-router-dom';
 import { useStateValue } from '../../Store/StateProvider';
 import ReviewCard from '../review/ReviewCard';

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import '../../styles/Home.css';
+import '../product/Products.css';
 import Product from './Product';
 import axios from 'axios';
 import { useStateValue } from '../../Store/StateProvider';
@@ -51,23 +51,19 @@ function Products() {
     }, [dispatch]);
 
     if (error) {
-        return <Modal onClose={closeModal} info={'Error Fetching Products . Please Try Again Later'} />
+        return <Modal onClose={closeModal} info={'Error Fetching Products. Please Try Again Later'} />
     }
-
 
     return (
         <Fragment>
             <div className='home'>
                 {isFetching && <Spinner />}
-                {/* once finalproducts is set The refresh sets fetching true so spinner occurs but the final prdcts are alrdy set so that prd displac under spinner
-                  so when fething is true dont show except soinner even though finalprdcts r ready*/}
                 {!isFetching && finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
                 {!isFetching && finalProducts && <div className="home_row">
-
                     {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
-                    {finalProducts.map((product) => (
+                    {finalProducts.map((product, index) => (
                         <Product
-                            key={product.id}
+                            key={index} // Ensure unique key for each product
                             category={product.category}
                             id={product.id}
                             title={product.title}
@@ -77,18 +73,11 @@ function Products() {
                             rating={Math.round(product.rating.rate)}
                             isFilled={product.isFilled}
                         />
-                    )
-
-                    )}
-
+                    ))}
                 </div>}
-
             </div>
-
-
-        </Fragment >
-
+        </Fragment>
     )
 }
 
-export default Products
+export default Products;

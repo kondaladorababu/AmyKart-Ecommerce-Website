@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/QuantityButton.css';
+import '../checkout/QuantityButton.css';
 import { useStateValue } from '../../Store/StateProvider';
 
 function QuantityButton(props) {

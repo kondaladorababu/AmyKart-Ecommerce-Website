@@ -1,7 +1,7 @@
 import React from 'react'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import '../../styles/FavoritedProduct.css';
+import '../favorite/FavoritedProduct.css';
 import { truncate } from '../../Store/reducer';
 import { useStateValue } from '../../Store/StateProvider';
 

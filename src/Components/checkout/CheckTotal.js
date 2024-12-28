@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '../../styles/CheckTotal.css';
+import '../checkout/CheckTotal.css';
 import { useStateValue } from '../../Store/StateProvider';
 import UiContext from '../../Store/UiContextProvider';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Product.css';
+import '../product/Product.css';
 import { useStateValue } from '../../Store/StateProvider';
 import { truncate } from '../../Store/reducer';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ function Product({ id, category, title, price, description, image, rating, isFil
         e.preventDefault();
         if (isFilled) {
             dispatch({
-                type: 'Remove_FROM_FAVORITES',
+                type: 'REMOVE_FROM_FAVORITES',
                 item: {
                     id: id,
                 },
@@ -26,8 +26,6 @@ function Product({ id, category, title, price, description, image, rating, isFil
                 id: notifications.length + 1,
                 message: 'Removed from Favorites',
             };
-
-
         } else {
             dispatch({
                 type: 'ADD_TO_FAVORITES',
@@ -95,20 +93,15 @@ function Product({ id, category, title, price, description, image, rating, isFil
         }, 3000);
     };
 
-
     return (
-        <Link to='/productPage' key={id} state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link' >
-
-            <div className='product' >
-                <div className="fav" onClick={toggleFill} >
-                    {isFilled && <FavoriteIcon />}
-                    {!isFilled && <FavoriteBorderOutlinedIcon className='favorite-icon' />}
+        <Link to='/productPage' state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link'>
+            <div className='product'>
+                <div className="fav" onClick={toggleFill}>
+                    {isFilled ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon className='favorite-icon' />}
                 </div>
                 <div className="product_image">
                     <img src={image} alt="" />
                 </div>
-
-
                 <div className="product_info">
                     <div className="product_details">
                         <p className='product_category'>{category.charAt(0).toUpperCase() + category.slice(1)}</p>
@@ -121,19 +114,16 @@ function Product({ id, category, title, price, description, image, rating, isFil
                             {truncate(description, 95)}
                         </p>
                         <div className="product_rating">
-                            {
-                                Array(rating).fill().map((_, index) => (
-                                    <p key={index}>⭐</p>
-                                ))
-                            }
+                            {Array(rating).fill().map((_, index) => (
+                                <p key={index}>⭐</p>
+                            ))}
                         </div>
                     </div>
                     <button className='add_product' onClick={addToBasket}>Add to basket</button>
                 </div>
             </div>
-
-        </Link >
-    )
+        </Link>
+    );
 }
 
 export default Product;

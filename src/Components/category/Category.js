@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Category.css';
+import '../category/Category.css';
 import CategoryCard from './CategoryCard';
 
 const Category = () => {
