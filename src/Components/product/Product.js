@@ -110,16 +110,13 @@ function Product({ id, category, title, price, description, image, rating, isFil
                             <small>₹</small>
                             <strong>{price}</strong>
                         </p>
-                        <p className='product_description'>
-                            {truncate(description, 95)}
-                        </p>
                         <div className="product_rating">
                             {Array(rating).fill().map((_, index) => (
                                 <p key={index}>⭐</p>
                             ))}
                         </div>
                     </div>
-                    <button className='add_product' onClick={addToBasket}>Add to basket</button>
+                    <button className='add_product' onClick={addToBasket}>Add to Compare</button>
                 </div>
             </div>
         </Link>
