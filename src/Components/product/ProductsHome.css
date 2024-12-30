@@ -1,8 +1,7 @@
 .home {
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
-  padding-bottom: 40px;
+  padding: 10px;
 }
 
 .home_image {
@@ -11,6 +10,27 @@
   z-index: -1;
   margin-bottom: -200px;
 }
+
+.products-home {
+  display: flex;
+  /* z-index: 1; */
+  /* margin-left: 5px; */
+  /* margin-right: 5px; */
+}
+
+.products-home-filters {
+  /* width: 60vw; */
+  min-height: 90vh;
+  max-height: max-content;
+  background-color: white;
+  border-radius: 10px;
+  /* padding: 25px; */
+  color: #333;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+}
+
 
 .productPage_link {
   color: black;
@@ -35,7 +55,8 @@
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     /* transform: scaleX(1.2);  */
     overflow: hidden;
-    margin: 0 auto; /* Center the image horizontally */
+    margin: 0 auto;
+    /* Center the image horizontally */
   }
 }
 

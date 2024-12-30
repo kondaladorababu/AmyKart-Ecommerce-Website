@@ -28,7 +28,7 @@ export default function ProductInfo() {
                                 </tr>
                                 <tr>
                                     <td><strong>Material:</strong></td>
-                                    <td>{"tescter"}</td>
+                                    <td>{"tester"}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Color:</strong></td>

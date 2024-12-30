@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './Components/common/Header';
-import Products from './Components/product/Products';
+import Products from './Components/product/ProductsHome';
 import Checkout from './Components/checkout/Checkout';
 import LoginPage from './Components/login/LoginPage';
 import SignUp from './Components/login/SignUp';

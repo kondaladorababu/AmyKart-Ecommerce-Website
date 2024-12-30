@@ -1,0 +1,65 @@
+.filters-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filters-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.filters-title>p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.filters-selected {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filters-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 7px;
+}
+
+.filters-list ul {
+    list-style-type: none;
+    /* Remove default list styling */
+    padding-left: 5px;
+    /* Remove default padding */
+    margin: 8px 0px;
+    /* Remove default margin */
+    /* cursor: pointer; */
+}
+
+.filters-list li {
+    margin-top: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+.filters-list li input {
+    margin-right: 5px;
+
+}
+
+.price-range-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

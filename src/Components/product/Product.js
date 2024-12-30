@@ -116,7 +116,7 @@ function Product({ id, category, title, price, description, image, rating, isFil
                             ))}
                         </div>
                     </div>
-                    <button className='add_product' onClick={addToBasket}>Add to Compare</button>
+                    {/* <button className='add_product' onClick={addToBasket}>Add to Compare</button> */}
                 </div>
             </div>
         </Link>
