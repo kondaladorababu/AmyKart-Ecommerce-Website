@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import "./Filters.css";
 import Expander from "../UI/Expander";
+import CheckBoxes from "../UI/CheckBoxes";
 
 const Filters = ({ filters }) => {
     const [selectedFilters, setSelectedFilters] = useState({});
-    console.log(selectedFilters);
 
     const handleFilterChange = (filterCategory, value) => {
         setSelectedFilters((prev) => ({
             ...prev,
             [filterCategory]: value,
         }));
-    };
 
+        //if the vale is empty, remove the filterCategory object completely
+        if (value.length === 0) {
+            const { [filterCategory]: removedFilter, ...otherFilters } = selectedFilters;
+            setSelectedFilters(otherFilters);
+        }
+    };
 
     const [expandedFilters, setExpandedFilters] = useState({});
 
@@ -22,8 +27,9 @@ const Filters = ({ filters }) => {
             [filterId]: !prevState[filterId],
         }));
     };
-    const hasSelectedFilters = Object.keys(selectedFilters).length > 0;
 
+
+    const hasSelectedFilters = Object.keys(selectedFilters).length > 0;
 
     return (
         <div className="filters-container">
@@ -31,20 +37,15 @@ const Filters = ({ filters }) => {
                 <p>Filters</p>
                 {hasSelectedFilters && <p style={{ color: '#2874f0', fontSize: '1rem' }} onClick={() => { setSelectedFilters([]) }}>Clear All</p>}
             </div>
+
             <section className="filters-selected">
 
-                {/* <ul>
-                    {Object.entries(selectedFilters).map(([key, value]) => (
-                        <li key={key}>
-                            <span>{key}:</span>
-                            <span>{Array.isArray(value) ? value.join(", ") : value}</span>
-                        </li>
-                    ))}
-                </ul> */}
             </section>
+
             <section className="filters-list">
                 <p>Price </p>
                 {filters.map((filterType) => (
+
                     <div key={filterType.id}>
                         {filterType.type === "range" ? (
                             <div className="price-range-filter">
@@ -65,36 +66,15 @@ const Filters = ({ filters }) => {
                                 <Expander filterType={filterType} selectedFilters={selectedFilters} expandedFilters={expandedFilters} handleToggle={handleToggle} />
 
                                 {/* Conditionally render the list based on isExpanded state */}
-                                {expandedFilters[filterType.id] && (
-                                    <ul >
-                                        {filterType.options.map((option) => (
-                                            <li key={option}>
-                                                <input
-                                                    type="checkbox"
-                                                    checked={selectedFilters[filterType.id]?.includes(option) || false}
-
-                                                    onChange={(e) =>
-                                                        handleFilterChange(
-                                                            filterType.id,
-                                                            e.target.checked
-                                                                ? [
-                                                                    ...(selectedFilters[filterType.id] || []),
-                                                                    option,
-                                                                ]
-                                                                : selectedFilters[filterType.id].filter(
-                                                                    (val) => val !== option
-                                                                )
-                                                        )
-                                                    }
-                                                />
-                                                {option}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
+                                {expandedFilters[filterType.id] &&
+                                    <CheckBoxes filterType={filterType}
+                                        selectedFilters={selectedFilters}
+                                        handleFilterChange={handleFilterChange}
+                                    />}
                             </div>
                         )}
                     </div>
+
                 ))}
             </section>
         </div>

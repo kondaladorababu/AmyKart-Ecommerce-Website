@@ -123,7 +123,7 @@ function Products() {
 
                 <div className="products-home">
                     {!isFetching && finalProducts &&
-                        <>
+                        <Fragment>
                             <section className="products-home-filters">
                                 <Filters filters={filters} />
                             </section>
@@ -144,7 +144,7 @@ function Products() {
                                     />
                                 ))}
                             </div>
-                        </>
+                        </Fragment>
                     }
                 </div>
 
