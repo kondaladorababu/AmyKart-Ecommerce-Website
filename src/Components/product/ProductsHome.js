@@ -7,6 +7,7 @@ import Spinner from '../common/Spinner';
 import Modal from '../UI/MOdal';
 import { useParams } from 'react-router-dom';
 import Filters from '../common/Filters';
+import Path from '../common/Path';
 
 let first = true;
 
@@ -112,24 +113,29 @@ function Products() {
         return <Modal onClose={closeModal} info={'Error Fetching Products. Please Try Again Later'} />
     }
 
-    const currentCategory = "fitness";
+    const currentCategory = "clothing";
     const filters = categoryFilters[currentCategory];
 
     return (
         <Fragment>
-            <div className='home'>
+            <div className='products_home'>
                 {isFetching && <Spinner />}
                 {!isFetching && finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
 
-                <div className="products-home">
-                    {!isFetching && finalProducts &&
-                        <Fragment>
-                            <section className="products-home-filters">
-                                <Filters filters={filters} />
-                            </section>
+                {/* <div className="products-home"> */}
+                {!isFetching && finalProducts &&
+                    <Fragment>
+                        <section className="products-home-filters">
+                            <Filters filters={filters} />
+                        </section>
+
+                        <div className="product_results">
+
+                            <Path currentCategory={currentCategory} finalProducts={finalProducts} />
 
                             <div className="home_row">
                                 {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
+
                                 {finalProducts.map((product, index) => (
                                     <Product
                                         key={index} // Ensure unique key for each product
@@ -144,9 +150,10 @@ function Products() {
                                     />
                                 ))}
                             </div>
-                        </Fragment>
-                    }
-                </div>
+                        </div>
+                    </Fragment>
+                }
+                {/* </div> */}
 
             </div>
         </Fragment>

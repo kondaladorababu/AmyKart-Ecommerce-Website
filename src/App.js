@@ -61,7 +61,7 @@ function App() {
             </>
           }></Route>
 
-          <Route exact path='/products/:categoryId' element={
+          <Route exact path='/:category' element={
             <>
               <Header />
               <Products />
@@ -104,7 +104,7 @@ function App() {
           }>
           </Route>
 
-          <Route exact path='/productPage' element={
+          <Route exact path='/:category/productPage' element={
             <>
               <Header />
               <ProductPage />

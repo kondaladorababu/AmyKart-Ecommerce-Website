@@ -94,7 +94,7 @@ function Product({ id, category, title, price, description, image, rating, isFil
     };
 
     return (
-        <Link to='/productPage' state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link'>
+        <Link to={`/${category}/productPage`} state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link'>
             <div className='product'>
                 <div className="fav" onClick={toggleFill}>
                     {isFilled ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon className='favorite-icon' />}

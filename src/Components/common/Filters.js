@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Filters.css";
 import Expander from "../UI/Expander";
 import CheckBoxes from "../UI/CheckBoxes";
+import Button from "../UI/Button";
 
 const Filters = ({ filters }) => {
     const [selectedFilters, setSelectedFilters] = useState({});
@@ -28,19 +29,18 @@ const Filters = ({ filters }) => {
         }));
     };
 
-
     const hasSelectedFilters = Object.keys(selectedFilters).length > 0;
 
     return (
         <div className="filters-container">
-            <div className="filters-title">
+            <div className="filters-header">
                 <p>Filters</p>
                 {hasSelectedFilters && <p style={{ color: '#2874f0', fontSize: '1rem' }} onClick={() => { setSelectedFilters([]) }}>Clear All</p>}
             </div>
 
-            <section className="filters-selected">
+            {/* <section className="filters-selected">
 
-            </section>
+            </section> */}
 
             <section className="filters-list">
                 <p>Price </p>
@@ -77,6 +77,12 @@ const Filters = ({ filters }) => {
 
                 ))}
             </section>
+
+            <div className="filters-apply">
+                <button className="apply-button" style={{ verticalAlign: 'middle' }} disabled={true}>
+                    <span>Apply</span>
+                </button>
+            </div>
         </div>
     );
 };

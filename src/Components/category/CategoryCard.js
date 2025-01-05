@@ -7,7 +7,7 @@ const CategoryCard = ({ category }) => {
     const navigate = useNavigate();
 
     const routeToProductsPage = () => {
-        navigate(`/products/${category.id}`);
+        navigate(`/${category.name}`);
     }
 
     return (

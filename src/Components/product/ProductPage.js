@@ -6,6 +6,7 @@ import ReviewCard from '../review/ReviewCard';
 import Rating from '@mui/material/Rating';
 import Product from './Product';
 import ProductInfo from './ProductInfo';
+import Path from '../common/Path';
 
 
 function ProductPage() {
@@ -150,6 +151,8 @@ function ProductPage() {
                 </div>
 
                 <div className='product_right'>
+
+                    <Path className="productPage_right_header" currentCategory={"clothing"} finalProducts={['', '']} />
 
                     <div className="productPage_info">
                         <div className="productPage_main_info">
