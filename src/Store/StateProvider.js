@@ -1,6 +1,17 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-import reducer, { initialState } from "./reducer";
+import reducer from "./reducer";
+
+const initialState = {
+    products: [],
+    finalProducts: [],
+    basket: [],
+    favorited: [],
+    totalPrice: 0,
+    user: null,
+    isModal: false,
+    notifications: []
+};
 
 // Prepares the dataLayer
 export const StateContext = createContext();

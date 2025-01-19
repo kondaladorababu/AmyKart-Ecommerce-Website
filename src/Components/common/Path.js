@@ -4,12 +4,15 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useNavigate, useLocation } from 'react-router-dom';
 import DropDown from '../UI/DropDown';
 import { useState } from 'react';
+import { useStateValue } from '../../Store/StateProvider';
 
-function Path({ className, currentCategory, finalProducts }) {
+function Path({ className, currentCategory }) {
     const navigate = useNavigate();
     const location = useLocation();
     const [showSort, setShowSort] = useState(className !== 'productPage_right_header');
 
+    const { state } = useStateValue();
+    const { finalProducts } = state;
 
 
     const handleHomeNavigation = () => {

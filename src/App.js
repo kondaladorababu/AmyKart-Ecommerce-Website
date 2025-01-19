@@ -63,7 +63,7 @@ function App() {
 
           <Route exact path='/:category' element={
             <>
-              <Header />
+              <Header />  
               <Products />
               <Footer />
             </>

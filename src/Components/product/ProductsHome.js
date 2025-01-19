@@ -5,15 +5,14 @@ import axios from 'axios';
 import { useStateValue } from '../../Store/StateProvider';
 import Spinner from '../common/Spinner';
 import Modal from '../UI/MOdal';
-import { useParams } from 'react-router-dom';
 import Filters from '../common/Filters';
 import Path from '../common/Path';
+// import { useParams } from 'react-router-dom';
 
 let first = true;
 
 function Products() {
-    const { categoryId } = useParams();
-
+    // const { categoryId } = useParams();
     const { state, dispatch } = useStateValue();
     const { finalProducts, isModal } = state;
     const [isFetching, setIsfetching] = useState(false);
@@ -72,7 +71,6 @@ function Products() {
             { id: "material", label: "Material", type: "checkbox", options: ["Leather", "Canvas", "Synthetic"] },
             { id: "type", label: "Type", type: "checkbox", options: ["Running", "Training", "Walking"] },
         ],
-
     };
 
     const closeModal = () => {
@@ -119,7 +117,7 @@ function Products() {
     return (
         <Fragment>
             <div className='products_home'>
-                {isFetching && <Spinner />}
+                {isFetching && <Spinner spinnerInfo={"Loading Products.... Please wait"} />}
                 {!isFetching && finalProducts.length === 0 && <p style={{ fontSize: '30px', fontWeight: '800', display: 'flex', justifyContent: 'center' }}>No Results Found</p>}
 
                 {/* <div className="products-home"> */}
@@ -131,14 +129,14 @@ function Products() {
 
                         <div className="product_results">
 
-                            <Path currentCategory={currentCategory} finalProducts={finalProducts} />
+                            <Path currentCategory={currentCategory} />
 
                             <div className="home_row">
                                 {isModal && <Modal onClose={closeModal} info={'Please Login To Add to basket'} />}
 
-                                {finalProducts.map((product, index) => (
+                                {finalProducts.map((product) => (
                                     <Product
-                                        key={index} // Ensure unique key for each product
+                                        key={product.id} // Ensure unique key for each product
                                         category={product.category}
                                         id={product.id}
                                         title={product.title}

@@ -60,41 +60,10 @@ function Product({ id, category, title, price, description, image, rating, isFil
         }, 3000);
     };
 
-    const addToBasket = (e) => {
-        e.preventDefault(); //to stop activating link navigation when clicked add to cart button
-
-        dispatch({
-            type: 'ADD_TO_BASKET',
-            item: {
-                id: id,
-                title: title,
-                price: price,
-                image: image,
-                rating: rating,
-                quantity: 1,
-            },
-        });
-
-        const newNotification = {
-            id: notifications.length + 1,
-            message: 'Added to Basket',
-        };
-
-        dispatch({
-            type: 'ADD_NOTIFICATION',
-            notific: newNotification,
-        });
-
-        setTimeout(() => {
-            dispatch({
-                type: 'REMOVE_NOTIFICATION',
-                idOfNotific: newNotification.id,
-            });
-        }, 3000);
-    };
+    // const handleNavigateToProductPage = (e) => {
 
     return (
-        <Link to={`/${category}/productPage`} state={{ productData: { id, category, title, price, description, image, rating } }} className='productPage_link'>
+        <Link to={`/${category}/productPage`} className='productPage_link'>
             <div className='product'>
                 <div className="fav" onClick={toggleFill}>
                     {isFilled ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon className='favorite-icon' />}

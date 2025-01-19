@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Filters.css";
 import Expander from "../UI/Expander";
 import CheckBoxes from "../UI/CheckBoxes";
-import Button from "../UI/Button";
 
 const Filters = ({ filters }) => {
     const [selectedFilters, setSelectedFilters] = useState({});

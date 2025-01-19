@@ -1,7 +1,7 @@
 import React from 'react';
 import '../common/Spinner.css';
 
-function Spinner() {
+function Spinner({ spinnerInfo }) {
     return (
         <div className='spinner'>
 
@@ -25,7 +25,7 @@ function Spinner() {
                     r="176"
                 ></circle>
             </svg>
-            <p>Loading Products.... Please wait</p>
+            <p>{spinnerInfo}</p>
 
         </div>
     )

@@ -8,17 +8,6 @@ export function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
 
-export const initialState = {
-    products: [],
-    finalProducts: [],
-    basket: [],
-    favorited: [],
-    totalPrice: 0,
-    user: null,
-    isModal: false,
-    notifications: []
-};
-
 function reducer(state, action) {
 
     switch (action.type) {
