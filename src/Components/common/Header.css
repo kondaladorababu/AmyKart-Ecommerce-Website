@@ -22,7 +22,7 @@
   font-size: 35px !important;
 }
 
-.header_logo > h3 {
+.header_logo>h3 {
   font-size: 25px;
 }
 
@@ -36,7 +36,7 @@
   background-color: aliceblue;
   display: flex;
   width: 100%;
- 
+
   margin-right: 20px;
 }
 
@@ -44,7 +44,7 @@
   padding: 5px 10px;
   border: none;
   width: 100%;
-  
+
   background: none;
   outline: none;
 }
@@ -56,6 +56,13 @@
   background: none;
 }
 
+.header_names {
+  font-size: 18px;
+  font-weight: 600;
+
+  padding-right: 6px;
+}
+
 .mobileHeaderSearch {
   display: none;
 }
@@ -65,6 +72,8 @@
   text-decoration: none;
   margin: 0px;
   padding: 0px;
+
+  cursor: pointer;
 }
 
 .header_optionBasket {
@@ -92,10 +101,25 @@
 
 .header_option {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
+  position: relative;
+}
+
+.header_account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header_profileDropDown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
 }
 
 .header_optionLineOne {
@@ -120,15 +144,19 @@
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(0.9);
   }
+
   30% {
     transform: scale(1.1);
   }
+
   50% {
     transform: scale(1.15);
   }
+
   100% {
     transform: scale(1);
   }
@@ -152,7 +180,7 @@
     font-size: 26px !important;
   }
 
-  .header_logo > h3 {
+  .header_logo>h3 {
     font-size: 16px;
   }
 

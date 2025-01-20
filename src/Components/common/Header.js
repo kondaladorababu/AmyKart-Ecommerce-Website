@@ -1,50 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import '../common/Header.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; import { useStateValue } from '../../Store/StateProvider';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useStateValue } from '../../Store/StateProvider';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
-
+import ProfileDropDownMenu from '../profile/ProfileDropDownMenu';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import UiContext from '../../Store/UiContextProvider';
 
 function Header() {
     const { state, dispatch } = useStateValue();
     const { products, basket } = state;
 
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
-    const [openMobileNav, setOpenMobileNav] = useState('mobile_nav_close');
-    const [userSearchData, setuserSearchData] = useState('');
+    const [mobileNavState, setMobileNavState] = useState('mobile_nav_close');
+    const [userSearchData, setUserSearchData] = useState('');
 
-    const openMoileNav = () => {
-        setOpenMobileNav('mobile_nav');
+    const { openProfileDropDown, handleOpenProfileDropDown } = useContext(UiContext);
+
+    const dropdownRef = useRef(null);
+
+    // Handlers
+    const openMobileNavHandler = () => {
+        setMobileNavState('mobile_nav');
     }
 
-    const closeMobileNav = () => {
-        setOpenMobileNav('mobile_nav_close');
+    const closeMobileNavHandler = () => {
+        setMobileNavState('mobile_nav_close');
     }
-
-    // const handleLogin = () => {
-    //     if (user) {
-    //         auth.signOut()
-    //             .then(() => {
-    //                 //clear the basket & close the mobile nav bar
-    //                 dispatch({
-    //                     type: 'CLEAR_BASKET',
-    //                 });
-    //                 setOpenMobileNav('mobile_nav_close');
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Error signing out:', error);
-    //             });
-    //     }
-    // }
 
     const userInputSearch = (e) => {
-        setuserSearchData(e.target.value);
+        setUserSearchData(e.target.value);
     }
 
-    //get the user searched data from products object every time a new search is entered
     const getUserSearchData = () => {
         const filteredProducts = products.filter((item) =>
             item.title.toLowerCase().includes(userSearchData.toLowerCase()) || item.description.toLowerCase().includes(userSearchData.toLowerCase())
@@ -56,17 +48,28 @@ function Header() {
         });
     }
 
-    // If clicked on logo set the finalproducts to products
     const refreshPage = () => {
-        setuserSearchData('');
+        setUserSearchData('');
         dispatch({
             type: 'SEARCH_RESULTS',
             data: products,
         });
     }
 
-    //Make the cart bump when added items to cart
-    //if basket len is changing which means item is added to cart
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            handleOpenProfileDropDown(false);
+        }
+    };
+
+    // Effects
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     useEffect(() => {
         if (basket.length === 0) {
             return;
@@ -81,13 +84,10 @@ function Header() {
         return () => {
             clearTimeout(timer);
         };
-
     }, [basket.length]);
-
 
     return (
         <nav className='header'>
-
             <Link to='/HomePage'>
                 <div className="header_logo" onClick={refreshPage}>
                     <StorefrontIcon className='logo' />
@@ -109,50 +109,53 @@ function Header() {
                 </div>
             </Link>
 
-            <div className={`${openMobileNav === 'mobile_nav' ? 'shadow' : ''}`}></div>
+            <div className={`${mobileNavState === 'mobile_nav' ? 'shadow' : ''}`}></div>
 
             {/* MAIN NAV BAR DESKTOP 2 Links */}
-            <div className={`header_nav ${openMobileNav}`}>
-
+            <div className={`header_nav ${mobileNavState}`}>
                 {/* hide this header search in in mobile view oresle it comes inside hamburger */}
                 <div className='header_search headerSearchInHamburger'>
                     <input value={userSearchData} onChange={userInputSearch} type="text" className="header_searchInput" placeholder='Search for products' />
                     <SearchIcon onClick={getUserSearchData} className='header_searchIcon' />
                 </div>
 
-                <i className="fa-solid fa-xmark" onClick={closeMobileNav}></i>
+                <i className="fa-solid fa-xmark" onClick={closeMobileNavHandler}></i>
 
                 {/* hide favorite icon in mobile nav Bar */}
                 <Link to='/favorites' className='header_link'>
                     <div className={`header_option header_optionFavorite`}>
-                        <FavoriteIcon />
-                        {openMobileNav === 'mobile_nav' && <span className='header_optionLineTwo'>Favorites</span>}
-                        {/* show the text only in mobile view */}
+                        <span className='header_names'>Favorites</span>
+                        <FavoriteIcon fontSize='18px' />
+                        {mobileNavState === 'mobile_nav' && <span className='header_optionLineTwo'>Favorites</span>}
                     </div>
                 </Link>
 
-                {/* hIDING THIS IN MOBILE NAV CAUSE OTHER BASKET FOR MOBILE MAIN BAR IS DISPLAYED */}
+                {/* HIDING THIS IN MOBILE NAV CAUSE OTHER BASKET FOR MOBILE MAIN BAR IS DISPLAYED */}
                 <Link to='/checkout' className='header_link mobileNavBarBasket_Link'>
-                    <div className={`header_optionBasket ${btnIsHighlighted ? 'bump' : ''}`}>
-                        <ShoppingCartIcon />
+                    <div className={`header_optionBasket`}>
+                        <span className='header_names'>Cart</span>
+                        <ShoppingCartIcon fontSize='16px' className={`${btnIsHighlighted ? 'bump' : ''}`} />
                         <span className='header_optionLineTwo header_basketCount'>{basket.length}</span>
                     </div>
                 </Link>
 
-                <Link to='/profile' className='header_link'>
-                    <div className="header_option">
-                        <PersonIcon />
-                        <span className='header_optionLineTwo'>Profile</span>
+                <div className='header_link'>
+                    <div className="header_option" onClick={() => { handleOpenProfileDropDown(!openProfileDropDown) }} ref={dropdownRef}>
+                        <div className='header_account'>
+                            <span className='header_names'>Account</span>
+                            <PersonIcon fontSize='20px' />
+                        </div>
+                        <div className='header_profileDropDown'>
+                            {openProfileDropDown ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                        </div>
+                        {openProfileDropDown && <ProfileDropDownMenu />}
                     </div>
-                </Link>
-
+                </div>
             </div>
 
-
-            <i className="fa-solid fa-bars" onClick={openMoileNav}></i>
-        </nav >
-
+            <i className="fa-solid fa-bars" onClick={openMobileNavHandler}></i>
+        </nav>
     )
 }
 
-export default Header
+export default Header;

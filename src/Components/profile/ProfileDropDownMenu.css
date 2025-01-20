@@ -1,0 +1,44 @@
+.profileDropdown {
+    position: absolute;
+    top: 160%;
+    right: 0px;
+
+    height: auto;
+    width: max-content;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+
+    padding: 0px, 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileDropdown-list-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 0.5px solid #cbcbcb;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.profileDropdown-list-item>span {
+    padding: 10px 10px 10px 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* except the last dropdown item  */
+.profileDropdown-list-item:last-child {
+    border-bottom: none;
+}
+
+.profileDropdown-list-item:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
