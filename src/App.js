@@ -14,6 +14,7 @@ import Footer from './Components/common/Footer';
 import Profile from './Components/profile/Profile';
 import Favorites from './Components/favorite/Favorites';
 import Category from './Components/category/Category';
+import OrderHistory from './Components/Order/OrderHistory';
 
 function App() {
   const { dispatch } = useStateValue();
@@ -108,6 +109,14 @@ function App() {
             <>
               <Header />
               <ProductPage />
+            </>
+          }>
+          </Route>
+          <Route exact path='/orderHistory' element={
+            <>
+              <Header />
+              <OrderHistory />
+              <Footer />
             </>
           }>
           </Route>

@@ -9,17 +9,17 @@ const ProfileDropDownMenu = () => {
 
     const navigate = useNavigate();
 
-    const handleOpenProfilePage = () => {
-        navigate('/profile');
+    const handleOpenProfilePageNavigation = (path) => {
+        navigate(path);
     }
 
     return (
         <div className="profileDropdown" >
-            <div className="profileDropdown-list-item" onClick={handleOpenProfilePage}>
+            <div className="profileDropdown-list-item" onClick={() => handleOpenProfilePageNavigation('/profile')}>
                 <AccountCircleIcon fontSize='14px' />
                 <span>My Profile</span>
             </div>
-            <div className="profileDropdown-list-item">
+            <div className="profileDropdown-list-item" onClick={() => handleOpenProfilePageNavigation('/orderHistory')}>
                 <BookIcon fontSize='14px' />
                 <span>My Orders</span>
             </div>

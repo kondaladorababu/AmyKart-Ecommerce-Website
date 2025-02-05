@@ -1,0 +1,113 @@
+.order_history_item {
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Change to column to stack elements vertically */
+    background-color: aliceblue;
+    box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: relative;
+}
+
+.order_history_item_body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.order_history_item_body_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.order_history_item_image {
+    margin-right: 20px;
+}
+
+.order_history_item_image img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.order_history_item_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.order_history_item_body_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.order_history_item_body_right>span {
+    font-weight: 600;
+}
+
+.order_history_item_more_info_button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* margin-top: 10px; */
+}
+
+.order_history_item_more_info {
+    display: none;
+    margin-top: 10px;
+    width: inherit;
+}
+
+.order_history_item_more_info.show {
+    display: block;
+}
+
+.order_history_item_more_info_section:not(:last-child) {
+    margin-bottom: 15px;
+    /* Add margin to all sections except the last one */
+}
+
+.order_history_item_more_info_section h4 {
+    border-top: 1px solid #cdcdcd;
+    padding-top: 5px;
+}
+
+.section_content {
+    padding-top: 5px;
+}
+
+.section_content p {
+    font-size: 1.2 rem;
+    font-weight: 600;
+}
+
+.section_content p span {
+    font-size: 0.8 rem;
+    font-weight: 400;
+}
+
+.price_details_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .order_history_item_body {
+        flex-direction: column;
+    }
+
+    .order_history_item_body_left {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .order_history_item_body_right {
+        align-items: flex-start;
+    }
+}

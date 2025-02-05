@@ -30,7 +30,7 @@ function Products() {
             { id: "price", label: "Price", type: "range", min: 100, max: 10000 },
             { id: "brand", label: "Brand", type: "checkbox", options: ["Nike", "Adidas", "Zara"] },
             { id: "size", label: "Sizes", type: "checkbox", options: ["Small", "Medium", "Large", "XLarge"] },
-            { id: "discount", label: "Discount", type: "checkbox", options: ["10% and above", "20% and above", "50% and above"] },
+            { id: "discount",    label: "Discount", type: "checkbox", options: ["10% and above", "20% and above", "50% and above"] },
             { id: "color", label: "Color", type: "checkbox", options: ["Red", "Blue", "Green", "Black"] },
             { id: "material", label: "Material", type: "checkbox", options: ["Cotton", "Polyester", "Silk"] },
             { id: "fit", label: "Fit", type: "checkbox", options: ["Regular Fit", "Slim Fit", "Skinny Fit"] },
