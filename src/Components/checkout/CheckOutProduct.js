@@ -24,7 +24,7 @@ function CheckOutProduct({ id, title, price, image, quantity }) {
 
             <div className='checkoutProduct_info'>
                 <div className="one">
-                    <p className='checkoutProduct_title'>{truncate(title, 55)}</p>
+                    <p className='checkoutProduct_title'>{truncate(title, 70)}</p>
                     <p className='product__price'>
                         <small>₹</small>
                         <strong>{price}</strong>

@@ -3,6 +3,7 @@ import './OrderHistoryItem.css';
 import { truncate } from './../../Store/reducer';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { useNavigate } from 'react-router-dom';
 
 export default function OrderHistoryItem({ product }) {
     const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -11,9 +12,18 @@ export default function OrderHistoryItem({ product }) {
         setShowMoreInfo(!showMoreInfo);
     };
 
+    const navigate = useNavigate();
+
+    const handleClick = (category) => {
+        navigate(`/${category}/productPage`);
+    };
+
+    var category = product.category;
+
     return (
+
         <div className='order_history_item'>
-            <div className='order_history_item_body'>
+            <div className='order_history_item_body' onClick={()=>{handleClick(category);}}>
                 <div className='order_history_item_body_left'>
                     <div className='order_history_item_image'>
                         <img src={product.image} alt='product' />
@@ -65,14 +75,14 @@ export default function OrderHistoryItem({ product }) {
 
                 </section>
 
-                <section className='order_history_item_more_info_section customer_info'>
+                {/* <section className='order_history_item_more_info_section customer_info'>
                     <h4>Customer Information</h4>
                     <div className='section_content'>
                         <p>Name: <span>John Doe</span></p>
                         <p>Email: <span>test@gmail.com</span> </p>
                         <p>Phone: <span>123-456-7890</span></p>
                     </div>
-                </section>
+                </section> */}
             </div>
         </div>
     )
